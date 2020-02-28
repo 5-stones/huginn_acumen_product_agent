@@ -60,6 +60,13 @@ TODO: Write usage instructions here
 
 ## Development
 
+To run in docker:
+
+```bash
+docker run --rm -it -v "$PWD":/app ruby:2.5.5 bash
+```
+
+
 Running `rake` will clone and set up Huginn in `spec/huginn` to run the specs of the Gem in Huginn as if they would be build-in Agents. The desired Huginn repository and branch can be modified in the `Rakefile`:
 
 ```ruby
