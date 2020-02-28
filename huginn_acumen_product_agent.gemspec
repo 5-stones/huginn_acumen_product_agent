@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "huginn_acumen_product_agent"
-  spec.version       = '0.1'
+  spec.version       = "0.0.0"
   spec.authors       = ["Jacob Spizziri"]
   spec.email         = ["jacob.spizziri@gmail.com"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{Huginn agent for sane ACUMEN product data.}
+  spec.description   = %q{The Huginn ACUMEN Product Agent takes in an array of ACUMEN product ID's, queries the relevant ACUMEN tables, and emits a set of events with a sane data interface for each those events.}
 
-  spec.homepage      = "https://github.com/[my-github-username]/huginn_acumen_product_agent"
+  spec.homepage      = "https://github.com/5-Stones/huginn_acumen_product_agent"
 
   spec.license       = "MIT"
 

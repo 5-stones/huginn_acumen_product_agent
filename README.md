@@ -1,8 +1,42 @@
 # AcumenProductAgent
 
-Welcome to your new agent gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/huginn_acumen_product_agent`. To experiment with that code, run `bin/console` for an interactive prompt.
+The Huginn ACUMEN Product Agent takes in an array of ACUMEN product ID's, queries the relevant ACUMEN tables, and emits a set of events with a sane data interface for each those events.
 
-TODO: Delete this and the text above, and describe your gem
+Here's the data interface:
+
+```ts
+interface Product {
+  name: string;
+  subtitle: string;
+  description: string;
+  editorialReviews: string;
+  variants: Variant[];
+  categories: number[];
+  contributors: ProductContributor[];
+}
+
+interface Variant {
+  sku: string;
+  id: string;
+  isbn: string;
+  width?: number;
+  height?: number;
+  depth?: number;
+  format: string;
+  isDigital: boolean;
+  isDefault: boolean;
+}
+
+interface ProductContributor {
+  id: number;
+  type: string;
+}
+
+interface Attribute {
+  key: string;
+  value: string;
+}
+```
 
 ## Installation
 
@@ -37,6 +71,27 @@ Make sure to delete the `spec/huginn` directory and re-run `rake` after changing
 After the setup is done `rake spec` will only run the tests, without cloning the Huginn source again.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+## Release
+
+The standard release command for this project is:
+
+```
+npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
+```
+
+This command will:
+
+1. Generate/update the Changelog
+1. Bump the package version
+1. Tag & pushing the commit
+
+
+e.g.
+
+```
+npm version 1.2.17
+npm ver
 
 ## Contributing
 
