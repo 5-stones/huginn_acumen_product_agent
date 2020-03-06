@@ -1,0 +1,471 @@
+Inv_Product:
+  8038: |
+    <Inv_Product>
+      <Inv_Product.ID xsi:type="xsd:int">8038</Inv_Product.ID>
+      <Inv_Product.ProdCode xsi:type="xsd:string">ARFD</Inv_Product.ProdCode>
+      <Inv_Product.Title xsi:type="xsd:string">ART OF RENEE FLEMING</Inv_Product.Title>
+      <Inv_Product.Full_Title xsi:type="xsd:string">The Art of Renee Fleming</Inv_Product.Full_Title>
+      <Inv_Product.ISBN_UPC xsi:type="xsd:string">028947844464</Inv_Product.ISBN_UPC>
+      <Inv_Product.Price_1 xsi:type="xsd:float">17.95</Inv_Product.Price_1>
+      <Inv_Product.Price_2 xsi:type="xsd:float">0</Inv_Product.Price_2>
+      <Inv_Product.Weight xsi:type="xsd:float">3.36</Inv_Product.Weight>
+      <Inv_Product.Taxable xsi:type="xsd:boolean">1</Inv_Product.Taxable>
+      <Inv_Product.Pub_Date xsi:type="xsd:date">2014-02-19T00:00:00</Inv_Product.Pub_Date>
+      <Inv_Product.DateTimeStamp xsi:type="xsd:int">621040776</Inv_Product.DateTimeStamp>
+      <Inv_Product.OnWeb_LinkOnly xsi:type="xsd:boolean">0</Inv_Product.OnWeb_LinkOnly>
+      <Inv_Product.Download_Product xsi:type="xsd:boolean">0</Inv_Product.Download_Product>
+      <Inv_Product.Info_Alpha_1 xsi:type="xsd:string"/>
+      <Inv_Product.Info_Boolean_1 xsi:type="xsd:boolean">0</Inv_Product.Info_Boolean_1>
+      <Inv_Product.Category xsi:type="xsd:string">CD</Inv_Product.Category>
+    </Inv_Product>
+  8039: |
+    <Inv_Product>
+      <Inv_Product.ID xsi:type="xsd:int">8039</Inv_Product.ID>
+      <Inv_Product.ProdCode xsi:type="xsd:string">ASCP</Inv_Product.ProdCode>
+      <Inv_Product.Title xsi:type="xsd:string">AT THE SERVICE OF THE CHURCH</Inv_Product.Title>
+      <Inv_Product.Full_Title xsi:type="xsd:string">At the Service of the Church</Inv_Product.Full_Title>
+      <Inv_Product.ISBN_UPC xsi:type="xsd:string">9780898704143</Inv_Product.ISBN_UPC>
+      <Inv_Product.Price_1 xsi:type="xsd:float">19.95</Inv_Product.Price_1>
+      <Inv_Product.Price_2 xsi:type="xsd:float">0</Inv_Product.Price_2>
+      <Inv_Product.Weight xsi:type="xsd:float">19.6</Inv_Product.Weight>
+      <Inv_Product.Taxable xsi:type="xsd:boolean">1</Inv_Product.Taxable>
+      <Inv_Product.Pub_Date xsi:type="xsd:date">1993-02-12T00:00:00</Inv_Product.Pub_Date>
+      <Inv_Product.DateTimeStamp xsi:type="xsd:int">626226305</Inv_Product.DateTimeStamp>
+      <Inv_Product.OnWeb_LinkOnly xsi:type="xsd:boolean">0</Inv_Product.OnWeb_LinkOnly>
+      <Inv_Product.Download_Product xsi:type="xsd:boolean">0</Inv_Product.Download_Product>
+      <Inv_Product.Info_Alpha_1 xsi:type="xsd:string"/>
+      <Inv_Product.Info_Boolean_1 xsi:type="xsd:boolean">0</Inv_Product.Info_Boolean_1>
+      <Inv_Product.Category xsi:type="xsd:string">Paperback</Inv_Product.Category>
+    </Inv_Product>
+  9341: |
+    <Inv_Product>
+      <Inv_Product.ID xsi:type="xsd:int">9341</Inv_Product.ID>
+      <Inv_Product.ProdCode xsi:type="xsd:string">GRDP</Inv_Product.ProdCode>
+      <Inv_Product.Title xsi:type="xsd:string">GREAT DISCOVERY</Inv_Product.Title>
+      <Inv_Product.Full_Title xsi:type="xsd:string">The Great Discovery</Inv_Product.Full_Title>
+      <Inv_Product.ISBN_UPC xsi:type="xsd:string">9781621642220</Inv_Product.ISBN_UPC>
+      <Inv_Product.Price_1 xsi:type="xsd:float">17.95</Inv_Product.Price_1>
+      <Inv_Product.Price_2 xsi:type="xsd:float">0</Inv_Product.Price_2>
+      <Inv_Product.Weight xsi:type="xsd:float">11.28</Inv_Product.Weight>
+      <Inv_Product.Taxable xsi:type="xsd:boolean">1</Inv_Product.Taxable>
+      <Inv_Product.Pub_Date xsi:type="xsd:date">2018-08-29T00:00:00</Inv_Product.Pub_Date>
+      <Inv_Product.DateTimeStamp xsi:type="xsd:int">625278724</Inv_Product.DateTimeStamp>
+      <Inv_Product.OnWeb_LinkOnly xsi:type="xsd:boolean">0</Inv_Product.OnWeb_LinkOnly>
+      <Inv_Product.Download_Product xsi:type="xsd:boolean">0</Inv_Product.Download_Product>
+      <Inv_Product.Info_Alpha_1 xsi:type="xsd:string"/>
+      <Inv_Product.Info_Boolean_1 xsi:type="xsd:boolean">0</Inv_Product.Info_Boolean_1>
+      <Inv_Product.Category xsi:type="xsd:string">Paperback</Inv_Product.Category>
+    </Inv_Product>
+  11117: |
+    <Inv_Product>
+      <Inv_Product.ID xsi:type="xsd:int">11117</Inv_Product.ID>
+      <Inv_Product.ProdCode xsi:type="xsd:string">STGMP</Inv_Product.ProdCode>
+      <Inv_Product.Title xsi:type="xsd:string">ST GIANNA MOLLA</Inv_Product.Title>
+      <Inv_Product.Full_Title xsi:type="xsd:string">Saint Gianna Molla</Inv_Product.Full_Title>
+      <Inv_Product.ISBN_UPC xsi:type="xsd:string">9780898708875</Inv_Product.ISBN_UPC>
+      <Inv_Product.Price_1 xsi:type="xsd:float">14.95</Inv_Product.Price_1>
+      <Inv_Product.Price_2 xsi:type="xsd:float">0</Inv_Product.Price_2>
+      <Inv_Product.Weight xsi:type="xsd:float">7.2</Inv_Product.Weight>
+      <Inv_Product.Taxable xsi:type="xsd:boolean">1</Inv_Product.Taxable>
+      <Inv_Product.Pub_Date xsi:type="xsd:date">2004-10-22T00:00:00</Inv_Product.Pub_Date>
+      <Inv_Product.DateTimeStamp xsi:type="xsd:int">626316911</Inv_Product.DateTimeStamp>
+      <Inv_Product.OnWeb_LinkOnly xsi:type="xsd:boolean">0</Inv_Product.OnWeb_LinkOnly>
+      <Inv_Product.Download_Product xsi:type="xsd:boolean">0</Inv_Product.Download_Product>
+      <Inv_Product.Info_Alpha_1 xsi:type="xsd:string"/>
+      <Inv_Product.Info_Boolean_1 xsi:type="xsd:boolean">0</Inv_Product.Info_Boolean_1>
+      <Inv_Product.Category xsi:type="xsd:string">Paperback</Inv_Product.Category>
+    </Inv_Product>
+  12657: |
+    <Inv_Product>
+      <Inv_Product.ID xsi:type="xsd:int">12657</Inv_Product.ID>
+      <Inv_Product.ProdCode xsi:type="xsd:string">GRDE</Inv_Product.ProdCode>
+      <Inv_Product.Title xsi:type="xsd:string">E-BK Great Discovery</Inv_Product.Title>
+      <Inv_Product.Full_Title xsi:type="xsd:string">The Great Discovery</Inv_Product.Full_Title>
+      <Inv_Product.ISBN_UPC xsi:type="xsd:string">9781642290370</Inv_Product.ISBN_UPC>
+      <Inv_Product.Price_1 xsi:type="xsd:float">17.95</Inv_Product.Price_1>
+      <Inv_Product.Price_2 xsi:type="xsd:float">0</Inv_Product.Price_2>
+      <Inv_Product.Weight xsi:type="xsd:float">0</Inv_Product.Weight>
+      <Inv_Product.Taxable xsi:type="xsd:boolean">1</Inv_Product.Taxable>
+      <Inv_Product.Pub_Date xsi:type="xsd:date">0000-00-00T00:00:00</Inv_Product.Pub_Date>
+      <Inv_Product.DateTimeStamp xsi:type="xsd:int">625794076</Inv_Product.DateTimeStamp>
+      <Inv_Product.OnWeb_LinkOnly xsi:type="xsd:boolean">1</Inv_Product.OnWeb_LinkOnly>
+      <Inv_Product.Download_Product xsi:type="xsd:boolean">0</Inv_Product.Download_Product>
+      <Inv_Product.Info_Alpha_1 xsi:type="xsd:string"/>
+      <Inv_Product.Info_Boolean_1 xsi:type="xsd:boolean">0</Inv_Product.Info_Boolean_1>
+      <Inv_Product.Category xsi:type="xsd:string">eBook</Inv_Product.Category>
+    </Inv_Product>
+  11116: |
+    <Inv_Product>
+      <Inv_Product.ID xsi:type="xsd:int">11116</Inv_Product.ID>
+      <Inv_Product.ProdCode xsi:type="xsd:string">STGME</Inv_Product.ProdCode>
+      <Inv_Product.Title xsi:type="xsd:string">E-BK ST GIANNA MOLLA</Inv_Product.Title>
+      <Inv_Product.Full_Title xsi:type="xsd:string">Saint Gianna Molla</Inv_Product.Full_Title>
+      <Inv_Product.ISBN_UPC xsi:type="xsd:string">9781681494159</Inv_Product.ISBN_UPC>
+      <Inv_Product.Price_1 xsi:type="xsd:float">14.95</Inv_Product.Price_1>
+      <Inv_Product.Price_2 xsi:type="xsd:float">0</Inv_Product.Price_2>
+      <Inv_Product.Weight xsi:type="xsd:float">0</Inv_Product.Weight>
+      <Inv_Product.Taxable xsi:type="xsd:boolean">1</Inv_Product.Taxable>
+      <Inv_Product.Pub_Date xsi:type="xsd:date">2013-08-05T00:00:00</Inv_Product.Pub_Date>
+      <Inv_Product.DateTimeStamp xsi:type="xsd:int">625794065</Inv_Product.DateTimeStamp>
+      <Inv_Product.OnWeb_LinkOnly xsi:type="xsd:boolean">1</Inv_Product.OnWeb_LinkOnly>
+      <Inv_Product.Download_Product xsi:type="xsd:boolean">0</Inv_Product.Download_Product>
+      <Inv_Product.Info_Alpha_1 xsi:type="xsd:string"/>
+      <Inv_Product.Info_Boolean_1 xsi:type="xsd:boolean">0</Inv_Product.Info_Boolean_1>
+      <Inv_Product.Category xsi:type="xsd:string">eBook</Inv_Product.Category>
+    </Inv_Product>
+
+ProdMkt:
+  8038: |
+    <ProdMkt>
+      <ProdMkt.Product_ID xsi:type="xsd:int">8038</ProdMkt.Product_ID>
+      <ProdMkt.Product_Code xsi:type="xsd:string">ARFD</ProdMkt.Product_Code>
+      <ProdMkt.ID xsi:type="xsd:int">1001</ProdMkt.ID>
+      <ProdMkt.DateTimeStamp xsi:type="xsd:int">607166246</ProdMkt.DateTimeStamp>
+      <ProdMkt.Pages xsi:type="xsd:int">0</ProdMkt.Pages>
+      <ProdMkt.Publisher xsi:type="xsd:string"/>
+      <ProdMkt.Description_Short xsi:type="xsd:string"/>
+      <ProdMkt.Description_Long xsi:type="xsd:string">&lt;p&gt;The most popular soprano in America and a celebrated classical musical ambassador of our time, Fleming captivates listeners with her sumptuous voice and consummate artistry. This album is a generous offering of Fleming's best known music, including such popular, sacred and classical pieces as Schubert's &lt;em&gt;Ave Maria&lt;/em&gt;,&lt;em&gt; Amazing Grace&lt;/em&gt;,&lt;em&gt; O Mio Babbino Caro&lt;/em&gt;,&lt;em&gt; You'll Never Walk Alone&lt;/em&gt;, &lt;em&gt;Ombra Mai F&amp;#249;&lt;/em&gt;,&lt;em&gt; Summertime&lt;/em&gt;,&lt;em&gt; Hallelujah&lt;/em&gt;,&lt;em&gt; Somewhere&lt;/em&gt;, and ten more gems.&lt;/p&gt;</ProdMkt.Description_Long>
+      <ProdMkt.Height xsi:type="xsd:string">5.6</ProdMkt.Height>
+      <ProdMkt.Width xsi:type="xsd:string">4.9</ProdMkt.Width>
+      <ProdMkt.Thickness xsi:type="xsd:string">0.4</ProdMkt.Thickness>
+      <ProdMkt.Meta_Keywords xsi:type="xsd:string"/>
+      <ProdMkt.Meta_Description xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Unit xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Value xsi:type="xsd:float">0</ProdMkt.Extent_Value>
+      <ProdMkt.Age_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Age_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Awards xsi:type="xsd:string"/>
+      <ProdMkt.Dimensions_Unit_Measure xsi:type="xsd:string"/>
+      <ProdMkt.Excerpt xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Status xsi:type="xsd:string"/>
+      <ProdMkt.UPC xsi:type="xsd:string"/>
+      <ProdMkt.Weight_Unit_Measure xsi:type="xsd:string">oz.</ProdMkt.Weight_Unit_Measure>
+      <ProdMkt.Weight xsi:type="xsd:string">3.36</ProdMkt.Weight>
+      <ProdMkt.Info_Text_01 xsi:type="xsd:string"/>
+      <ProdMkt.Info_Text_02 xsi:type="xsd:string"/>
+      <ProdMkt.Religious_Text_Identifier xsi:type="xsd:string"/>
+    </ProdMkt>
+  8039: |
+    <ProdMkt>
+      <ProdMkt.Product_ID xsi:type="xsd:int">8039</ProdMkt.Product_ID>
+      <ProdMkt.Product_Code xsi:type="xsd:string">ASCP</ProdMkt.Product_Code>
+      <ProdMkt.ID xsi:type="xsd:int">1002</ProdMkt.ID>
+      <ProdMkt.DateTimeStamp xsi:type="xsd:int">607166263</ProdMkt.DateTimeStamp>
+      <ProdMkt.Pages xsi:type="xsd:int">411</ProdMkt.Pages>
+      <ProdMkt.Publisher xsi:type="xsd:string"/>
+      <ProdMkt.Description_Short xsi:type="xsd:string"/>
+      <ProdMkt.Description_Long xsi:type="xsd:string">&lt;p style="margin: 0in 0in 10pt" class="MsoNormal"&gt;This book includes essays, notes, and reviews reflecting the fundamental ideas and key writings of Henri de Lubac, one of the greatest theologians of the twentieth century.&amp;#160; In these pages Cardinal de Lubac explains the origin, meaning, and fate of his works, in the context of his life, studies, personal relationships, as well as his legendary exiles, and his later vindication.&amp;#160; At the Service of the Church provides crucial insights into the work of a man who profoundly shaped the Church, including the teaching of the Second Vatican Council.&amp;#160; No student of contemporary theology can afford to neglect de Lubac&amp;#x2019;s work and this book gives readers a unique perspective on that work.&amp;#160; This volume is also an important source for understanding the renewed theological debates regarding nature and grace, the natural desire for God, and the authentic interpretation of St. Thomas Aquinas. &lt;/p&gt;&lt;p style="margin: 0in 0in 10pt" class="MsoNormal"&gt;</ProdMkt.Description_Long>
+      <ProdMkt.Height xsi:type="xsd:string">9</ProdMkt.Height>
+      <ProdMkt.Width xsi:type="xsd:string">6</ProdMkt.Width>
+      <ProdMkt.Thickness xsi:type="xsd:string">1.1</ProdMkt.Thickness>
+      <ProdMkt.Meta_Keywords xsi:type="xsd:string"/>
+      <ProdMkt.Meta_Description xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Unit xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Value xsi:type="xsd:float">0</ProdMkt.Extent_Value>
+      <ProdMkt.Age_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Age_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Awards xsi:type="xsd:string"/>
+      <ProdMkt.Dimensions_Unit_Measure xsi:type="xsd:string">Inches (US)</ProdMkt.Dimensions_Unit_Measure>
+      <ProdMkt.Excerpt xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Status xsi:type="xsd:string"/>
+      <ProdMkt.UPC xsi:type="xsd:string">0898704146</ProdMkt.UPC>
+      <ProdMkt.Weight_Unit_Measure xsi:type="xsd:string">oz.</ProdMkt.Weight_Unit_Measure>
+      <ProdMkt.Weight xsi:type="xsd:string">19.6</ProdMkt.Weight>
+      <ProdMkt.Info_Text_01 xsi:type="xsd:string"/>
+      <ProdMkt.Info_Text_02 xsi:type="xsd:string"/>
+      <ProdMkt.Religious_Text_Identifier xsi:type="xsd:string"/>
+    </ProdMkt>
+  9341: |
+    <ProdMkt>
+      <ProdMkt.Product_ID xsi:type="xsd:int">9341</ProdMkt.Product_ID>
+      <ProdMkt.Product_Code xsi:type="xsd:string">GRDP</ProdMkt.Product_Code>
+      <ProdMkt.ID xsi:type="xsd:int">2303</ProdMkt.ID>
+      <ProdMkt.DateTimeStamp xsi:type="xsd:int">607166264</ProdMkt.DateTimeStamp>
+      <ProdMkt.Pages xsi:type="xsd:int">280</ProdMkt.Pages>
+      <ProdMkt.Publisher xsi:type="xsd:string"/>
+      <ProdMkt.Description_Short xsi:type="xsd:string"/>
+      <ProdMkt.Description_Long xsi:type="xsd:string">&lt;p&gt;Ulf and Birgitta Ekman are no strangers to controversy. As a Lutheran priest at Uppsala University in the 1980s, Ulf was a leader of a student revival that resulted in his very public separation from the Church of Sweden. With his wife, Birgitta, he founded Word of Life, a large Pentecostal church that attracted thousands of members and planted churches and Bible schools around the world. Word of Life became the first "mega-church" in the country, and Ulf Ekman became Sweden's most prominent Christian leader.&lt;/p&gt;&#13;&lt;p&gt;Being well-known Christian leaders in one of the world's most secular countries brings many challenges. The Ekmans were constantly in the crosshairs of the media, who were critical of what they dubbed a "prosperity gospel". But the biggest criticisms would come from within the Christian church when the Ekmans answered the persistent call to join the Catholic Church. The news of their leaving Word of Life Church to become Catholics was a bombshell in Sweden.&lt;/p&gt;&#13;&lt;p&gt;In &lt;em&gt;The Great Discovery the Ekmans&lt;/em&gt; tell the amazing, inspirational story of their road to Rome, from their own intense opposition to Catholicism to meeting with Pope Francis. The result is an instant classic of Christian autobiography.&lt;/p&gt;</ProdMkt.Description_Long>
+      <ProdMkt.Height xsi:type="xsd:string">8</ProdMkt.Height>
+      <ProdMkt.Width xsi:type="xsd:string">5.2</ProdMkt.Width>
+      <ProdMkt.Thickness xsi:type="xsd:string">0.7</ProdMkt.Thickness>
+      <ProdMkt.Meta_Keywords xsi:type="xsd:string"/>
+      <ProdMkt.Meta_Description xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Unit xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Value xsi:type="xsd:float">0</ProdMkt.Extent_Value>
+      <ProdMkt.Age_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Age_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Awards xsi:type="xsd:string"/>
+      <ProdMkt.Dimensions_Unit_Measure xsi:type="xsd:string">Inches (US)</ProdMkt.Dimensions_Unit_Measure>
+      <ProdMkt.Excerpt xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Status xsi:type="xsd:string"/>
+      <ProdMkt.UPC xsi:type="xsd:string"/>
+      <ProdMkt.Weight_Unit_Measure xsi:type="xsd:string">oz.</ProdMkt.Weight_Unit_Measure>
+      <ProdMkt.Weight xsi:type="xsd:string">11.28</ProdMkt.Weight>
+      <ProdMkt.Info_Text_01 xsi:type="xsd:string">&lt;p&gt;"An unforgettable tale.&amp;nbsp;A&amp;nbsp;story commingled with theology, a journey of honest questions, enduring love, dissatisfaction, and&amp;mdash;finally&amp;mdash;sweet resolution." &lt;br /&gt;&lt;strong&gt;&amp;mdash; Tyler Blanski&lt;/strong&gt;, Author, &lt;em&gt;An Immovable Feast: How I Gave Up Spirituality for a Life of Religious Abundance&lt;/em&gt;&lt;/p&gt;&#13;&lt;p&gt;"Ulf&amp;nbsp;and Birgitta Ekman spent decades as evangelists.&amp;nbsp;Ulf&amp;nbsp;was known as 'Sweden's Billy Graham'. This book is their amazing story. You don't have to be Catholic to love it. If you're human, it will move you."&lt;br /&gt;&lt;strong&gt;&amp;mdash; Scott Hahn, Ph.D.&lt;/strong&gt;, Author, &lt;em&gt;Rome Sweet Home&lt;/em&gt; &lt;/p&gt;&#13;&lt;p&gt;"The Ekmans' journey is fascinating, enjoyable, inspiring, and convincing. To hear their enthusiasm for the Catholic faith is to rediscover the joy of this blessed Church, which so many of us too often take for granted."&lt;br /&gt;&lt;strong&gt;&amp;mdash; Marcus Grodi&lt;/strong&gt;, EWTN TV Host, &lt;em&gt;The Journey Home&lt;/em&gt;&lt;/p&gt;&#13;&lt;p&gt;"The Ekmans found their way into the Church through a lifetime of repeated encounters with devout Catholics,&amp;nbsp;the ineluctable presence of Christ in the Eucharist, a holy desire for Christian unity . . .&amp;nbsp;and even intense personal suffering.&amp;nbsp;This book will remind you that your everyday Catholic life can change the world through its effect upon others you encounter."&lt;br /&gt;&lt;strong&gt;&amp;mdash; David Currie&lt;/strong&gt;, Author, &lt;em&gt;Born Fundamentalist, Born Again Catholic&lt;/em&gt;&lt;/p&gt;&#13;&lt;p&gt;&lt;em&gt;"&lt;/em&gt;Reading this book is akin to listening to husband and wife at a kitchen table, and they are truly humbling and charming company. Their resolve to convert to Catholicism is a staggering testimony to quiet courage in Christ."&lt;br /&gt;&lt;strong&gt;&amp;mdash; Sally Read&lt;/strong&gt;, Author, &lt;em&gt;Night's Bright Darkness&lt;/em&gt;&lt;/p&gt;&#13;&lt;p&gt;&lt;em&gt;"The&amp;nbsp;Great&amp;nbsp;Discovery&lt;/em&gt;&amp;nbsp;shows the&amp;nbsp;challenge&amp;nbsp;of searching for truth and the joy of its discovery. I am convinced that this book will encourage many people&amp;nbsp;in their search for the truth about God."&lt;br /&gt;&lt;strong&gt;&amp;mdash; Most Reverend Tomash Peta&lt;/strong&gt;,&amp;nbsp;Metropolitan Archbishop of Astana,&amp;nbsp;Kazakhstan&lt;/p&gt;&#13;&lt;p&gt;"A fascinating and extremely well-written account of a spiritual journey. This challenging explanation of the Ekmans' intellectual, emotional, and Spirit-inspired experiences, some of which I saw firsthand, makes inspirational reading."&lt;br /&gt;&lt;strong&gt;&amp;mdash; Charles Whitehead&lt;/strong&gt;, Chairman, International Charismatic Consultation&lt;/p&gt;</ProdMkt.Info_Text_01>
+      <ProdMkt.Info_Text_02 xsi:type="xsd:string"/>
+      <ProdMkt.Religious_Text_Identifier xsi:type="xsd:string"/>
+    </ProdMkt>
+  11117: |
+    <ProdMkt>
+      <ProdMkt.Product_ID xsi:type="xsd:int">11117</ProdMkt.Product_ID>
+      <ProdMkt.Product_Code xsi:type="xsd:string">STGMP</ProdMkt.Product_Code>
+      <ProdMkt.ID xsi:type="xsd:int">4078</ProdMkt.ID>
+      <ProdMkt.DateTimeStamp xsi:type="xsd:int">607166273</ProdMkt.DateTimeStamp>
+      <ProdMkt.Pages xsi:type="xsd:int">155</ProdMkt.Pages>
+      <ProdMkt.Publisher xsi:type="xsd:string"/>
+      <ProdMkt.Description_Short xsi:type="xsd:string"/>
+      <ProdMkt.Description_Long xsi:type="xsd:string">&lt;p&gt;This is the inspiring story of a canonized contemporary woman. Gianna Molla (1923-1962) risked her life in order to save her unborn child. Diagnosed with uterine tumors during her fourth pregnancy, she refused a hysterectomy that would have aborted the child, and opted for a riskier surgery in an attempt to save the baby. Herself a medical doctor, Molla did give birth to the child, but succumbed to an infection.&lt;br /&gt;&lt;br /&gt;An Italian woman who loved skiing, playing piano, attending concerts at the Milan Conservatory, Molla was a dedicated physician and devoted wife and mother who lived life to the fullest, yet generously risked death by cancer for the sake of her child.&lt;br /&gt;&lt;br /&gt;A unique story, co-authored by her own husband, with his deeply moving personal insights of the heroic witness, love, sacrifice and joy of his saintly wife. A woman for all times and walks of life, this moving account of the multi-faceted, selfless St. Gianna Molla, who made the ultimate sacrifice to save her unborn child, will be an inspiration to all readers. &lt;em&gt;Illustrated&lt;/em&gt;&lt;br /&gt;&lt;br /&gt;&amp;#x201C;A woman of exceptional love, an outstanding wife and mother, Gianna Molla gave witness in her daily life to the demanding values of the Gospel.&amp;#x201D;&lt;br /&gt;&lt;strong&gt;&amp;#151;Pope John Paul II&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&amp;#160;&lt;/p&gt;</ProdMkt.Description_Long>
+      <ProdMkt.Height xsi:type="xsd:string">8</ProdMkt.Height>
+      <ProdMkt.Width xsi:type="xsd:string">5.2</ProdMkt.Width>
+      <ProdMkt.Thickness xsi:type="xsd:string">0.5</ProdMkt.Thickness>
+      <ProdMkt.Meta_Keywords xsi:type="xsd:string">saints,women in the church,parenting,motherhood,family,marriage,st gianna molla,biography</ProdMkt.Meta_Keywords>
+      <ProdMkt.Meta_Description xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Unit xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Value xsi:type="xsd:float">0</ProdMkt.Extent_Value>
+      <ProdMkt.Age_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Age_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Awards xsi:type="xsd:string"/>
+      <ProdMkt.Dimensions_Unit_Measure xsi:type="xsd:string">Inches (US)</ProdMkt.Dimensions_Unit_Measure>
+      <ProdMkt.Excerpt xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Status xsi:type="xsd:string"/>
+      <ProdMkt.UPC xsi:type="xsd:string">0898708877</ProdMkt.UPC>
+      <ProdMkt.Weight_Unit_Measure xsi:type="xsd:string">oz.</ProdMkt.Weight_Unit_Measure>
+      <ProdMkt.Weight xsi:type="xsd:string">7.2</ProdMkt.Weight>
+      <ProdMkt.Info_Text_01 xsi:type="xsd:string"/>
+      <ProdMkt.Info_Text_02 xsi:type="xsd:string"/>
+      <ProdMkt.Religious_Text_Identifier xsi:type="xsd:string"/>
+    </ProdMkt>
+  12657: |
+    <ProdMkt>
+      <ProdMkt.Product_ID xsi:type="xsd:int">12657</ProdMkt.Product_ID>
+      <ProdMkt.Product_Code xsi:type="xsd:string">GRDE</ProdMkt.Product_Code>
+      <ProdMkt.ID xsi:type="xsd:int">4906</ProdMkt.ID>
+      <ProdMkt.DateTimeStamp xsi:type="xsd:int">590140532</ProdMkt.DateTimeStamp>
+      <ProdMkt.Pages xsi:type="xsd:int">280</ProdMkt.Pages>
+      <ProdMkt.Publisher xsi:type="xsd:string"/>
+      <ProdMkt.Description_Short xsi:type="xsd:string"/>
+      <ProdMkt.Description_Long xsi:type="xsd:string">&lt;p&gt;&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;** Currently only Available in ePUB format download **&lt;br /&gt;&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&#13;&lt;p&gt;PRC format under development&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;&#13;&lt;p&gt;&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;This ebook cannot be sold to the United Kingdom.&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Ulf and Birgitta Ekman are no strangers to controversy. As a Lutheran priest at Uppsala University in the 1980s, Ulf was a leader of a student revival that resulted in his very public separation from the Church of Sweden. With his wife, Birgitta, he founded Word of Life, a large Pentecostal church that attracted thousands of members and planted churches and Bible schools around the world. Word of Life became the first "mega-church" in the country, and Ulf Ekman became Sweden's most prominent Christian leader.&lt;/p&gt;&#13;&lt;p&gt;Being well-known Christian leaders in one of the world's most secular countries brings many challenges. The Ekmans were constantly in the crosshairs of the media, who were critical of what they dubbed a "prosperity gospel". But the biggest criticisms would come from within the Christian church when the Ekmans answered the persistent call to join the Catholic Church. The news of their leaving Word of Life Church to become Catholics was a bombshell in Sweden.&lt;/p&gt;&#13;&lt;p&gt;In &lt;em&gt;The Great Discovery the Ekmans&lt;/em&gt; tell the amazing, inspirational story of their road to Rome, from their own intense opposition to Catholicism to meeting with Pope Francis. The result is an instant classic of Christian autobiography.&lt;/p&gt;</ProdMkt.Description_Long>
+      <ProdMkt.Height xsi:type="xsd:string"/>
+      <ProdMkt.Width xsi:type="xsd:string"/>
+      <ProdMkt.Thickness xsi:type="xsd:string"/>
+      <ProdMkt.Meta_Keywords xsi:type="xsd:string"/>
+      <ProdMkt.Meta_Description xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Unit xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Value xsi:type="xsd:float">0</ProdMkt.Extent_Value>
+      <ProdMkt.Age_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Age_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Awards xsi:type="xsd:string"/>
+      <ProdMkt.Dimensions_Unit_Measure xsi:type="xsd:string"/>
+      <ProdMkt.Excerpt xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Status xsi:type="xsd:string"/>
+      <ProdMkt.UPC xsi:type="xsd:string"/>
+      <ProdMkt.Weight_Unit_Measure xsi:type="xsd:string"/>
+      <ProdMkt.Weight xsi:type="xsd:string"/>
+      <ProdMkt.Info_Text_01 xsi:type="xsd:string">&lt;p&gt;"An unforgettable tale.&amp;nbsp;A&amp;nbsp;story commingled with theology, a journey of honest questions, enduring love, dissatisfaction, and&amp;mdash;finally&amp;mdash;sweet resolution." &lt;br /&gt;&lt;strong&gt;&amp;mdash; Tyler Blanski&lt;/strong&gt;, Author, &lt;em&gt;An Immovable Feast: How I Gave Up Spirituality for a Life of Religious Abundance&lt;/em&gt;&lt;/p&gt;&#13;&lt;p&gt;"Ulf&amp;nbsp;and Birgitta Ekman spent decades as evangelists.&amp;nbsp;Ulf&amp;nbsp;was known as 'Sweden's Billy Graham'. This book is their amazing story. You don't have to be Catholic to love it. If you're human, it will move you."&lt;br /&gt;&lt;strong&gt;&amp;mdash; Scott Hahn, Ph.D.&lt;/strong&gt;, Author, &lt;em&gt;Rome Sweet Home&lt;/em&gt; &lt;/p&gt;&#13;&lt;p&gt;"The Ekmans' journey is fascinating, enjoyable, inspiring, and convincing. To hear their enthusiasm for the Catholic faith is to rediscover the joy of this blessed Church, which so many of us too often take for granted."&lt;br /&gt;&lt;strong&gt;&amp;mdash; Marcus Grodi&lt;/strong&gt;, EWTN TV Host, &lt;em&gt;The Journey Home&lt;/em&gt;&lt;/p&gt;&#13;&lt;p&gt;"The Ekmans found their way into the Church through a lifetime of repeated encounters with devout Catholics,&amp;nbsp;the ineluctable presence of Christ in the Eucharist, a holy desire for Christian unity . . .&amp;nbsp;and even intense personal suffering.&amp;nbsp;This book will remind you that your everyday Catholic life can change the world through its effect upon others you encounter."&lt;br /&gt;&lt;strong&gt;&amp;mdash; David Currie&lt;/strong&gt;, Author, &lt;em&gt;Born Fundamentalist, Born Again Catholic&lt;/em&gt;&lt;/p&gt;&#13;&lt;p&gt;&lt;em&gt;"&lt;/em&gt;Reading this book is akin to listening to husband and wife at a kitchen table, and they are truly humbling and charming company. Their resolve to convert to Catholicism is a staggering testimony to quiet courage in Christ."&lt;br /&gt;&lt;strong&gt;&amp;mdash; Sally Read&lt;/strong&gt;, Author, &lt;em&gt;Night's Bright Darkness&lt;/em&gt;&lt;/p&gt;&#13;&lt;p&gt;&lt;em&gt;"The&amp;nbsp;Great&amp;nbsp;Discovery&lt;/em&gt;&amp;nbsp;shows the&amp;nbsp;challenge&amp;nbsp;of searching for truth and the joy of its discovery. I am convinced that this book will encourage many people&amp;nbsp;in their search for the truth about God."&lt;br /&gt;&lt;strong&gt;&amp;mdash; Most Reverend Tomash Peta&lt;/strong&gt;,&amp;nbsp;Metropolitan Archbishop of Astana,&amp;nbsp;Kazakhstan&lt;/p&gt;&#13;&lt;p&gt;"A fascinating and extremely well-written account of a spiritual journey. This challenging explanation of the Ekmans' intellectual, emotional, and Spirit-inspired experiences, some of which I saw firsthand, makes inspirational reading."&lt;br /&gt;&lt;strong&gt;&amp;mdash; Charles Whitehead&lt;/strong&gt;, Chairman, International Charismatic Consultation&lt;/p&gt;</ProdMkt.Info_Text_01>
+      <ProdMkt.Info_Text_02 xsi:type="xsd:string"/>
+      <ProdMkt.Religious_Text_Identifier xsi:type="xsd:string"/>
+    </ProdMkt>
+  11116: |
+    <ProdMkt>
+      <ProdMkt.Product_ID xsi:type="xsd:int">11116</ProdMkt.Product_ID>
+      <ProdMkt.Product_Code xsi:type="xsd:string">STGME</ProdMkt.Product_Code>
+      <ProdMkt.ID xsi:type="xsd:int">4077</ProdMkt.ID>
+      <ProdMkt.DateTimeStamp xsi:type="xsd:int">567106473</ProdMkt.DateTimeStamp>
+      <ProdMkt.Pages xsi:type="xsd:int">155</ProdMkt.Pages>
+      <ProdMkt.Publisher xsi:type="xsd:string"/>
+      <ProdMkt.Description_Short xsi:type="xsd:string"/>
+      <ProdMkt.Description_Long xsi:type="xsd:string">&lt;p&gt;&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;** Currently only Available in ePUB format download **&lt;br /&gt;&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;PRC format under development&lt;/br&gt;&lt;p&gt;&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;This ebook cannot be sold to the United Kingdom.&lt;br /&gt;&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;This is the inspiring story of a canonized contemporary woman. Gianna Molla (1923-1962) risked her life in order to save her unborn child. Diagnosed with uterine tumors during her fourth pregnancy, she refused a hysterectomy that would have aborted the child, and opted for a riskier surgery in an attempt to save the baby. Herself a medical doctor, Molla did give birth to the child, but succumbed to an infection.&lt;p&gt;An Italian woman who loved skiing, playing piano, attending concerts at the Milan Conservatory, Molla was a dedicated physician and devoted wife and mother who lived life to the fullest, yet generously risked death by cancer for the sake of her child.&lt;/p&gt;&lt;p&gt;A unique story, co-authored by her own husband, with his deeply moving personal insights of the heroic witness, love, sacrifice and joy of his saintly wife. A woman for all times and walks of life, this moving account of the multi-faceted, selfless St. Gianna Molla, who made the ultimate sacrifice to save her unborn child, will be an inspiration to all readers. Illustrated&lt;/p&gt;&lt;p&gt;"A woman of exceptional love, an outstanding wife and mother, Gianna Molla gave witness in her daily life to the demanding values of the Gospel."&lt;br /&gt;&lt;strong&gt;- Pope John Paul II&lt;/strong&gt;&lt;/p&gt;</ProdMkt.Description_Long>
+      <ProdMkt.Height xsi:type="xsd:string"/>
+      <ProdMkt.Width xsi:type="xsd:string"/>
+      <ProdMkt.Thickness xsi:type="xsd:string"/>
+      <ProdMkt.Meta_Keywords xsi:type="xsd:string"/>
+      <ProdMkt.Meta_Description xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Unit xsi:type="xsd:string"/>
+      <ProdMkt.Extent_Value xsi:type="xsd:float">0</ProdMkt.Extent_Value>
+      <ProdMkt.Age_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Age_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Awards xsi:type="xsd:string"/>
+      <ProdMkt.Dimensions_Unit_Measure xsi:type="xsd:string"/>
+      <ProdMkt.Excerpt xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Highest xsi:type="xsd:string"/>
+      <ProdMkt.Grade_Lowest xsi:type="xsd:string"/>
+      <ProdMkt.Status xsi:type="xsd:string"/>
+      <ProdMkt.UPC xsi:type="xsd:string"/>
+      <ProdMkt.Weight_Unit_Measure xsi:type="xsd:string">oz.</ProdMkt.Weight_Unit_Measure>
+      <ProdMkt.Weight xsi:type="xsd:string">0</ProdMkt.Weight>
+      <ProdMkt.Info_Text_01 xsi:type="xsd:string"/>
+      <ProdMkt.Info_Text_02 xsi:type="xsd:string"/>
+      <ProdMkt.Religious_Text_Identifier xsi:type="xsd:string"/>
+    </ProdMkt>
+
+ProdMkt_WPC:
+  ASCP: |
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">ASCP</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1113</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">ASCP</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1159</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">ASCP</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1029</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+  STGMP: |
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">STGMP</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1048</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">STGMP</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1069</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">STGMP</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1068</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">STGMP</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1065</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">STGMP</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1302</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+  ARFD: |
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">ARFD</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1275</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">1</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">ARFD</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1268</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">ARFD</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1271</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">ARFD</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1270</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+  GRDP: |
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">GRDP</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1045</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+    <ProdMkt_WPC>
+      <ProdMkt_WPC.ProdCode xsi:type="xsd:string">GRDP</ProdMkt_WPC.ProdCode>
+      <ProdMkt_WPC.WPC_ID xsi:type="xsd:int">1028</ProdMkt_WPC.WPC_ID>
+      <ProdMkt_WPC.Inactive xsi:type="xsd:boolean">0</ProdMkt_WPC.Inactive>
+    </ProdMkt_WPC>
+
+ProdMkt_Contrib_Link:
+  1048: |
+    <ProdMkt_Contrib_Link>
+      <ProdMkt_Contrib_Link.ProdMkt_Contrib_ID xsi:type="xsd:int">1048</ProdMkt_Contrib_Link.ProdMkt_Contrib_ID>
+      <ProdMkt_Contrib_Link.ProdMkt_ID xsi:type="xsd:int">4078</ProdMkt_Contrib_Link.ProdMkt_ID>
+      <ProdMkt_Contrib_Link.Inactive xsi:type="xsd:boolean">0</ProdMkt_Contrib_Link.Inactive>
+    </ProdMkt_Contrib_Link>
+  1129: |
+    <ProdMkt_Contrib_Link>
+      <ProdMkt_Contrib_Link.ProdMkt_Contrib_ID xsi:type="xsd:int">1129</ProdMkt_Contrib_Link.ProdMkt_Contrib_ID>
+      <ProdMkt_Contrib_Link.ProdMkt_ID xsi:type="xsd:int">1002</ProdMkt_Contrib_Link.ProdMkt_ID>
+      <ProdMkt_Contrib_Link.Inactive xsi:type="xsd:boolean">0</ProdMkt_Contrib_Link.Inactive>
+    </ProdMkt_Contrib_Link>
+  1310: |
+    <ProdMkt_Contrib_Link>
+      <ProdMkt_Contrib_Link.ProdMkt_Contrib_ID xsi:type="xsd:int">1310</ProdMkt_Contrib_Link.ProdMkt_Contrib_ID>
+      <ProdMkt_Contrib_Link.ProdMkt_ID xsi:type="xsd:int">4078</ProdMkt_Contrib_Link.ProdMkt_ID>
+      <ProdMkt_Contrib_Link.Inactive xsi:type="xsd:boolean">0</ProdMkt_Contrib_Link.Inactive>
+    </ProdMkt_Contrib_Link>
+  1375: |
+    <ProdMkt_Contrib_Link>
+      <ProdMkt_Contrib_Link.ProdMkt_Contrib_ID xsi:type="xsd:int">1375</ProdMkt_Contrib_Link.ProdMkt_Contrib_ID>
+      <ProdMkt_Contrib_Link.ProdMkt_ID xsi:type="xsd:int">2303</ProdMkt_Contrib_Link.ProdMkt_ID>
+      <ProdMkt_Contrib_Link.Inactive xsi:type="xsd:boolean">0</ProdMkt_Contrib_Link.Inactive>
+    </ProdMkt_Contrib_Link>
+  1894: |
+    <ProdMkt_Contrib_Link>
+      <ProdMkt_Contrib_Link.ProdMkt_Contrib_ID xsi:type="xsd:int">1894</ProdMkt_Contrib_Link.ProdMkt_Contrib_ID>
+      <ProdMkt_Contrib_Link.ProdMkt_ID xsi:type="xsd:int">2303</ProdMkt_Contrib_Link.ProdMkt_ID>
+      <ProdMkt_Contrib_Link.Inactive xsi:type="xsd:boolean">0</ProdMkt_Contrib_Link.Inactive>
+    </ProdMkt_Contrib_Link>
+
+Product_Link:
+  11117: |
+    <Product_Link>
+      <Product_Link.Link_From_ID xsi:type="xsd:int">11117</Product_Link.Link_From_ID>
+      <Product_Link.Link_To_ID xsi:type="xsd:int">11116</Product_Link.Link_To_ID>
+      <Product_Link.Alt_Format xsi:type="xsd:boolean">0</Product_Link.Alt_Format>
+    </Product_Link>
+    <Product_Link>
+      <Product_Link.Link_From_ID xsi:type="xsd:int">11117</Product_Link.Link_From_ID>
+      <Product_Link.Link_To_ID xsi:type="xsd:int">11116</Product_Link.Link_To_ID>
+      <Product_Link.Alt_Format xsi:type="xsd:boolean">1</Product_Link.Alt_Format>
+    </Product_Link>
+    <Product_Link>
+      <Product_Link.Link_From_ID xsi:type="xsd:int">11117</Product_Link.Link_From_ID>
+      <Product_Link.Link_To_ID xsi:type="xsd:int">9969</Product_Link.Link_To_ID>
+      <Product_Link.Alt_Format xsi:type="xsd:boolean">0</Product_Link.Alt_Format>
+    </Product_Link>
+  9341: |
+    <Product_Link>
+      <Product_Link.Link_From_ID xsi:type="xsd:int">9341</Product_Link.Link_From_ID>
+      <Product_Link.Link_To_ID xsi:type="xsd:int">12657</Product_Link.Link_To_ID>
+      <Product_Link.Alt_Format xsi:type="xsd:boolean">1</Product_Link.Alt_Format>
+    </Product_Link>
+    <Product_Link>
+      <Product_Link.Link_From_ID xsi:type="xsd:int">9341</Product_Link.Link_From_ID>
+      <Product_Link.Link_To_ID xsi:type="xsd:int">8693</Product_Link.Link_To_ID>
+      <Product_Link.Alt_Format xsi:type="xsd:boolean">0</Product_Link.Alt_Format>
+    </Product_Link>
+    <Product_Link>
+      <Product_Link.Link_From_ID xsi:type="xsd:int">9341</Product_Link.Link_From_ID>
+      <Product_Link.Link_To_ID xsi:type="xsd:int">10771</Product_Link.Link_To_ID>
+      <Product_Link.Alt_Format xsi:type="xsd:boolean">0</Product_Link.Alt_Format>
+    </Product_Link>
+    <Product_Link>
+      <Product_Link.Link_From_ID xsi:type="xsd:int">9341</Product_Link.Link_From_ID>
+      <Product_Link.Link_To_ID xsi:type="xsd:int">8813</Product_Link.Link_To_ID>
+      <Product_Link.Alt_Format xsi:type="xsd:boolean">0</Product_Link.Alt_Format>
+    </Product_Link>
+    <Product_Link>
+      <Product_Link.Link_From_ID xsi:type="xsd:int">9341</Product_Link.Link_From_ID>
+      <Product_Link.Link_To_ID xsi:type="xsd:int">9406</Product_Link.Link_To_ID>
+      <Product_Link.Alt_Format xsi:type="xsd:boolean">0</Product_Link.Alt_Format>
+    </Product_Link>
+    <Product_Link>
+      <Product_Link.Link_From_ID xsi:type="xsd:int">9341</Product_Link.Link_From_ID>
+      <Product_Link.Link_To_ID xsi:type="xsd:int">10381</Product_Link.Link_To_ID>
+      <Product_Link.Alt_Format xsi:type="xsd:boolean">0</Product_Link.Alt_Format>
+    </Product_Link>
+    <Product_Link>
+      <Product_Link.Link_From_ID xsi:type="xsd:int">9341</Product_Link.Link_From_ID>
+      <Product_Link.Link_To_ID xsi:type="xsd:int">10393</Product_Link.Link_To_ID>
+      <Product_Link.Alt_Format xsi:type="xsd:boolean">0</Product_Link.Alt_Format>
+    </Product_Link>
