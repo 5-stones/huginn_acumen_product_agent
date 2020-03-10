@@ -37,11 +37,22 @@ module AcumenProductQueryConcern
             id = product['acumenAttributes']['product_marketing_id']
             product_contributor = product_contributors[id]
 
+
             if product_contributor
-                product['contributor'] = product_contributor.map do |pc|
+                contributor_ids = product_contributor.map do |pc|
+                  pc['contributor_id']
+                end
+
+                type_response = acumen_client.get_contributor_types(contributor_ids)
+                contributor_types = process_contributor_types_query(type_response)
+
+                product['contributors'] = product_contributor.map do |pc|
                     {
                         '@type' => 'Person',
-                        'identifier' => pc['contributor_id']
+                        'identifier' => pc['contributor_id'],
+                        'acumenAttributes' => {
+                            'contrib_type' => contributor_types[pc['contributor_id']]
+                        }
                     }
                 end
             end
@@ -74,7 +85,7 @@ module AcumenProductQueryConcern
         products.each do |product|
             sku = product['sku']
             if categories[sku]
-                active = categories[sku].select { |c| c['inactive'] != 0 }
+                active = categories[sku].select { |c| c['inactive'] == '0' }
                 product['categories'] = active.map do |category|
                   {
                     '@type' => 'Thing',
@@ -119,6 +130,7 @@ module AcumenProductQueryConcern
                 'identifier' => variant['identifier'],
                 'sku' => variant['sku'],
                 'name' => field_value(p, 'Inv_Product.Full_Title'),
+                'disambiguatingDescription' => field_value(p, 'Inv_Product.SubTitle'),
                 'model' => [
                     variant
                 ],
@@ -315,13 +327,32 @@ module AcumenProductQueryConcern
                 'ProdMkt_Contrib_Link.Inactive' => 'inactive',
             })
 
-            if results[mapped['product_marketing_id']]
-                results[mapped['product_marketing_id']].push(mapped)
-            else
-                results[mapped['product_marketing_id']] = [mapped]
+            if mapped['inactive'] == '0'
+
+              if results[mapped['product_marketing_id']]
+                  results[mapped['product_marketing_id']].push(mapped)
+              else
+                  results[mapped['product_marketing_id']] = [mapped]
+              end
             end
         end
         results
+    end
+
+    def process_contributor_types_query(types)
+      results = {}
+      types.each do |type|
+          mapped = response_mapper(type, {
+              'ProdMkt_Contributor.ID' => 'contributor_id',
+              'ProdMkt_Contributor.Contrib_Type' => 'type',
+          })
+
+          if !results[mapped['contributor_id']]
+              results[mapped['contributor_id']] = mapped['type']
+          end
+      end
+
+      results
     end
 
     def process_products_and_variants(products, variants, links)
