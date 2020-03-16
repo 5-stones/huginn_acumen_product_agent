@@ -20,6 +20,7 @@ module Agents
                 'site_code' => '',
                 'password' => '',
                 'attribute_to_property' => {},
+                'contributor_types_map' => {},
             }
         end
 
@@ -38,6 +39,10 @@ module Agents
 
             unless options['attribute_to_property'].is_a?(Hash)
                 errors.add(:base, "if provided, attribute_to_property must be a hash")
+            end
+
+            unless options['contributor_types_map'].is_a?(Hash)
+                errors.add(:base, "if provided, contributor_types_map must be a hash")
             end
         end
 
@@ -110,6 +115,5 @@ module Agents
                 end
             end
         end
-
     end
 end

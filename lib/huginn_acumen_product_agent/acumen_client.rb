@@ -31,6 +31,12 @@ class AcumenClient
       get_results(response, 'ProdMkt_Contrib_Link')
   end
 
+  def get_contributor_types(ids)
+    body = build_product_contributor_type_query(ids)
+    response = execute_in_list_query(body, {})
+    get_results(response, 'ProdMkt_Contributor')
+  end
+
   def get_product_categories(skus)
       q = build_product_categories_query(skus)
       response = execute_in_list_query(q, {})
@@ -243,6 +249,27 @@ class AcumenClient
               </requested_output>
           </acusoapRequest>
       XML
+  end
+
+  def build_product_contributor_type_query(ids)
+    <<~XML
+      <acusoapRequest>
+          #{build_acumen_query_auth()}
+          <query>
+            <statement>
+              <column_name>ProdMkt_Contributor.ID</column_name>
+              <comparator>in</comparator>
+              <value>#{ids.join(',')}</value>
+            </statement>
+          </query>
+          <requested_output>
+            <view_owner_table_name>ProdMkt_Contributor</view_owner_table_name>
+            <view_name>ProdMkt_ContributorAllRead</view_name>
+            <column_name>ProdMkt_Contributor.ID</column_name>
+            <column_name>ProdMkt_Contributor.Contrib_Type</column_name>
+          </requested_output>
+      </acusoapRequest>
+    XML
   end
 
   def build_acumen_query_auth()
