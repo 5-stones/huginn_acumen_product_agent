@@ -138,6 +138,7 @@ module AcumenProductQueryConcern
                 'acumenAttributes' => {
                     'info_alpha_1' => field_value(p, 'Inv_Product.Info_Alpha_1'),
                     'info_boolean_1' => field_value(p, 'Inv_Product.Info_Boolean_1'),
+                    'is_master' => field_value(p, 'Inv_Product.OnWeb_LinkOnly') == '0',
                 },
             }
 
