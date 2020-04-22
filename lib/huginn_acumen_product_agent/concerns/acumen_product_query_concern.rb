@@ -110,7 +110,9 @@ module AcumenProductQueryConcern
             variant['@type'] = 'ProductModel'
             variant['isDefault'] = field_value(p, 'Inv_Product.OnWeb_LinkOnly') == '0'
             variant['isTaxable'] = field_value(p, 'Inv_Product.Taxable') == '1'
-            variant['is_master'] = field_value(p, 'Inv_Product.OnWeb_LinkOnly') == '0'
+            variant['acumenAttributes'] = {
+              'is_master' => field_value(p, 'Inv_Product.OnWeb_LinkOnly') == '0'
+            }
 
             variant['offers'] = [{
                 '@type' => 'Offer',
@@ -166,7 +168,6 @@ module AcumenProductQueryConcern
                 variant['bookFormat'] = "http://schema.org/EBook"
                 variant['accessMode'] = "textual"
                 variant['isDigital'] = true
-                variant['isDefault'] = true
               elsif category == 'CD'
                 product['additionalType'] = variant['additionalType'] = 'CreativeWork'
                 variant['accessMode'] = "auditory"
