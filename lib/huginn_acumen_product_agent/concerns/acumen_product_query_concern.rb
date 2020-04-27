@@ -60,7 +60,7 @@ module AcumenProductQueryConcern
         products
     end
 
-    def get_product_variants(acumen_client, products)
+    def get_product_variants(acumen_client, products, physical_formats, digital_formats)
         ids = products.map { |product| product['identifier'] }
         # fetch product/variant relationships
         variant_links = get_variants_for_ids(acumen_client, ids)
@@ -72,7 +72,7 @@ module AcumenProductQueryConcern
         variants = get_products_by_ids(acumen_client, variant_ids)
 
         # merge variants and products together
-        process_products_and_variants(products, variants, variant_links)
+        process_products_and_variants(products, variants, variant_links, physical_formats, digital_formats)
     end
 
     def get_product_categories(acumen_client, products)
@@ -108,7 +108,7 @@ module AcumenProductQueryConcern
                 'Inv_Product.Pub_Date' => 'datePublished',
             })
             variant['@type'] = 'ProductModel'
-            variant['isDefault'] = field_value(p, 'Inv_Product.OnWeb_LinkOnly') == '0'
+            variant['isDefault'] = false
             variant['isTaxable'] = field_value(p, 'Inv_Product.Taxable') == '1'
             variant['acumenAttributes'] = {
               'is_master' => field_value(p, 'Inv_Product.OnWeb_LinkOnly') == '0'
@@ -358,7 +358,7 @@ module AcumenProductQueryConcern
       results
     end
 
-    def process_products_and_variants(products, variants, links)
+    def process_products_and_variants(products, variants, links, physical_formats, digital_formats)
         products_map = {}
         products.each { |product| products_map[product['identifier']] = product }
 
@@ -375,6 +375,31 @@ module AcumenProductQueryConcern
 
         result = []
         products_map.each_value { |p| result.push(p) }
+
+        result.each do |product|
+          if product['model'].length == 1
+            product['model'][0]['isDefault'] = true
+            next
+          else
+            physical_formats.each do |val|
+              match = product['model'].select { |v| v[field_value(product, 'Inv_Product.Category')] == val }
+
+              if match
+                match['isDefault'] = true
+                break
+              end
+            end
+
+            digital_formats.each do |val|
+              match = product['model'].select { |v| v[field_value(product, 'Inv_Product.Category')] == val }
+
+              if match
+                match['isDefault'] = true
+                break
+              end
+            end
+          end
+        end
         result
     end
 

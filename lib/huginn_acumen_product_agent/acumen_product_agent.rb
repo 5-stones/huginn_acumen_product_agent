@@ -19,6 +19,8 @@ module Agents
                 'endpoint' => 'https://example.com',
                 'site_code' => '',
                 'password' => '',
+                'physical_formats' => [],
+                'digital_formats' => [],
                 'attribute_to_property' => {},
                 'contributor_types_map' => {},
             }
@@ -35,6 +37,14 @@ module Agents
 
             unless options['password'].present?
                 errors.add(:base, 'password is a required field')
+            end
+
+            unless options['physical_formats'].present?
+                errors.add(:base, "physical_formats is a required field")
+            end
+
+            unless options['digital_formats'].present?
+                errors.add(:base, "digital_formats is a required field")
             end
 
             unless options['attribute_to_property'].is_a?(Hash)
@@ -66,6 +76,8 @@ module Agents
             endpoint = interpolated['endpoint']
             site_code = interpolated['site_code']
             password = interpolated['password']
+            physical_formats = interpolated['physical_formats']
+            digital_formats = interpolated['digital_formats']
 
             auth = {
                 'site_code' => site_code,
@@ -76,7 +88,7 @@ module Agents
 
             ids = event.payload['ids']
             products = get_products_by_ids(client, ids)
-            products = get_product_variants(client, products)
+            products = get_product_variants(client, products, physical_formats, digital_formats)
             products = get_product_categories(client, products)
             products = get_product_contributors(client, products)
 
