@@ -384,8 +384,8 @@ module AcumenProductQueryConcern
             physical_formats.each do |val|
               match = product['model'].select { |v| v[field_value(product, 'Inv_Product.Category')] == val }
 
-              if match
-                match['isDefault'] = true
+              if match && match.length > 0
+                match[0]['isDefault'] = true
                 break
               end
             end
@@ -393,8 +393,8 @@ module AcumenProductQueryConcern
             digital_formats.each do |val|
               match = product['model'].select { |v| v[field_value(product, 'Inv_Product.Category')] == val }
 
-              if match
-                match['isDefault'] = true
+              if match && match.length > 0
+                match[0]['isDefault'] = true
                 break
               end
             end
