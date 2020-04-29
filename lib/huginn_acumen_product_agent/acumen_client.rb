@@ -46,11 +46,17 @@ class AcumenClient
 
   def execute_query(body, headers)
       response = @faraday.run_request(:post, "#{@auth['endpoint']}/Query", body, headers)
+
+      Rails.logger.info('execute_query response body: ' + response.body)
+
       ::MultiXml.parse(response.body, {})
   end
 
   def execute_in_list_query(body, headers)
       response = @faraday.run_request(:post, "#{@auth['endpoint']}/QueryByInList", body, headers)
+
+      Rails.logger.info('execute_in_list_query response body: ' + response.body)
+
       ::MultiXml.parse(response.body, {})
   end
 
