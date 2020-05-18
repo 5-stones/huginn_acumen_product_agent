@@ -293,6 +293,11 @@ module AcumenProductQueryConcern
                 variant['depth'] = quantitative_value(
                   marketing['thickness'], marketing['dimensions_unit_measure']
                 )
+                if variant['weight']['value'] == '0'
+                    variant['weight'] = quantitative_value(
+                      marketing['weight'], marketing['weight_unit_measure']
+                    )
+                end
             end
         end
 
