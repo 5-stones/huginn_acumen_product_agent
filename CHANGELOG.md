@@ -1,3 +1,13 @@
+# [1.3.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.2.6...v1.3.0) (2020-05-27)
+
+
+### Features
+
+* **acumen_product_query_concer:** check if variant weight is 0 ([1d78e35](https://github.com/5-stones/huginn_acumen_product_agent/commit/1d78e3599f60927ce446a1b41cfae6dec1b004a0))
+* **acumen_product_query_concer:** remove weight override ([e3c2e9b](https://github.com/5-stones/huginn_acumen_product_agent/commit/e3c2e9b22d0f96919c61ec85be56281b240683ef))
+
+
+
 ## [1.2.6](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.2.5...v1.2.6) (2020-04-29)
 
 
