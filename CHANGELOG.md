@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.3.0...v1.4.0) (2020-06-12)
+
+
+### Features
+
+* **acumen_client, acumen_product_query_concer:** get video urls ([6047225](https://github.com/5-stones/huginn_acumen_product_agent/commit/60472257454e2f6f1621ea9b9be60d35d4b26ff0))
+
+
+
 # [1.3.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.2.6...v1.3.0) (2020-05-27)
 
 
