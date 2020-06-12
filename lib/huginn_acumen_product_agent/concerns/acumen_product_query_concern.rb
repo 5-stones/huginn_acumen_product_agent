@@ -223,6 +223,7 @@ module AcumenProductQueryConcern
                 'ProdMkt.Info_Text_01' => 'info_text_01',
                 'ProdMkt.Info_Text_02' => 'info_text_02',
                 'ProdMkt.Religious_Text_Identifier' => 'religious_text_identifier',
+                'ProdMkt.Info_Alpha_07' => 'info_alpha_07',
             })
 
             results[mapped['product_id']] = mapped
@@ -276,6 +277,7 @@ module AcumenProductQueryConcern
                 product['acumenAttributes']['extent_value'] = marketing['extent_value']
                 product['acumenAttributes']['info_text_01'] = marketing['info_text_01']
                 product['acumenAttributes']['info_text_02'] = marketing['info_text_02']
+                product['acumenAttributes']['info_alpha_07'] = marketing['info_alpha_07']
                 product['acumenAttributes']['meta_description'] = marketing['meta_description']
                 product['acumenAttributes']['religious_text_identifier'] = marketing['religious_text_identifier']
                 product['acumenAttributes']['status'] = marketing['status']
