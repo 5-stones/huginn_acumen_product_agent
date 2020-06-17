@@ -93,6 +93,8 @@ class AcumenClient
                   <column_name>Inv_Product.Info_Alpha_1</column_name>
                   <column_name>Inv_Product.Info_Boolean_1</column_name>>
                   <column_name>Inv_Product.Category</column_name>
+                  <column_name>Inv_Product.Next_Release</column_name>
+                  <column_name>Inv_Product.BO_Reason</column_name>
               </requested_output>
           </acusoapRequest>
       XML
