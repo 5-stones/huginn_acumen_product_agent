@@ -106,6 +106,7 @@ module AcumenProductQueryConcern
                 'Inv_Product.SubTitle' => 'disambiguatingDescription',
                 'Inv_Product.ISBN_UPC' => 'isbn',
                 'Inv_Product.Pub_Date' => 'datePublished',
+                'Inv_Product.Next_Release' => 'releaseDate',
             })
             variant['@type'] = 'ProductModel'
             variant['isDefault'] = false
@@ -117,11 +118,13 @@ module AcumenProductQueryConcern
             variant['offers'] = [{
                 '@type' => 'Offer',
                 'price' => field_value(p, 'Inv_Product.Price_1'),
+                'availability' => field_value(p, 'Inv_Product.BO_Reason')
             }]
             if field_value(p, 'Inv_Product.Price_2')
               variant['offers'].push({
                   '@type' => 'Offer',
                   'price' => field_value(p, 'Inv_Product.Price_2'),
+                  'availability' => field_value(p, 'Inv_Product.BO_Reason')
               })
             end
 
