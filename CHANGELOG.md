@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.4.0...v1.5.0) (2020-06-19)
+
+
+### Features
+
+* **acumen_product_query_concer, acumen_client:** BO_Reason and Release ([61cf9ae](https://github.com/5-stones/huginn_acumen_product_agent/commit/61cf9ae9c07f5fd6e879296b27effd6038b7fc24))
+
+
+
 # [1.4.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.3.0...v1.4.0) (2020-06-12)
 
 
