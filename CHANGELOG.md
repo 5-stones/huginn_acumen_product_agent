@@ -1,3 +1,7 @@
+## [1.5.1](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.5.0...v1.5.1) (2020-07-15)
+
+
+
 # [1.5.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.4.0...v1.5.0) (2020-06-19)
 
 
