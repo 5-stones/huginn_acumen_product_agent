@@ -375,9 +375,11 @@ module AcumenProductQueryConcern
         links.each do |link|
             from_id = link['from_id']
             to_id = link['to_id']
-            variant = variants_map[to_id]
-            variant['isDefault'] = false
-            products_map[from_id]['model'].push(*variant['model'])
+            if variants_map.key?(to_id)
+              variant = variants_map[to_id]
+              variant['isDefault'] = false
+              products_map[from_id]['model'].push(*variant['model'])
+            end
         end
 
         result = []
