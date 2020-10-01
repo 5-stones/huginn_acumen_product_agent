@@ -20,7 +20,16 @@ module AcumenProductQueryConcern
 
     def get_variants_for_ids(acumen_client, ids)
         result = get_linked_products_by_ids(acumen_client, ids)
-        result.select { |link| link['alt_format'].to_s != 0.to_s }
+
+        # Filtering out duplicate links getting sent from acumen
+        filter = []
+        result.each do |link|
+          if (link['alt_format'].to_s != 0.to_s && !link.in?(filter))
+            filter.push(link)
+          end
+        end
+
+        return filter
     end
 
     def get_linked_products_by_ids(acumen_client, ids)
