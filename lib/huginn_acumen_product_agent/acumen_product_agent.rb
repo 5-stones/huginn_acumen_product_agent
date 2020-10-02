@@ -54,6 +54,10 @@ module Agents
             unless options['contributor_types_map'].is_a?(Hash)
                 errors.add(:base, "if provided, contributor_types_map must be a hash")
             end
+
+            unless options['ignore_skus'].is_a?(Array)
+                errors.add(:base, "if provided, ignore_skus must be an array")
+            end
         end
 
         def working?
@@ -78,6 +82,7 @@ module Agents
             password = interpolated['password']
             physical_formats = interpolated['physical_formats']
             digital_formats = interpolated['digital_formats']
+            ignore_skus = interpolated['ignore_skus']
 
             auth = {
                 'site_code' => site_code,
@@ -104,7 +109,19 @@ module Agents
             end
 
             products.each do |product|
-                create_event payload: product
+                if (ignore_skus.empty?)
+                  create_event payload: product
+                else
+                  emit_product = true
+                  ignore_skus.each do |ignore_sku|
+                    if (ignore_sku == product['sku'])
+                      emit_product = false
+                    end
+                  end
+                  if (emit_product)
+                    create_event payload: product
+                  end
+                end
             end
         end
 
