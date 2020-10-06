@@ -184,6 +184,10 @@ module AcumenProductQueryConcern
                 product['additionalType'] = variant['additionalType'] = 'CreativeWork'
                 variant['accessMode'] = "auditory"
                 variant['isDigital'] = false
+              elsif category == 'Audio Download'
+                product['additionalType'] = variant['additionalType'] = 'CreativeWork'
+                variant['accessMode'] = "auditory"
+                variant['isDigital'] = true
               else
                 variant['isDigital'] = false
               end
