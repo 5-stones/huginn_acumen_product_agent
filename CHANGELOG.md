@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.5.2...v1.6.0) (2020-10-12)
+
+
+### Features
+
+* **acumen_product_agent:** ignore skus ([c6cdb91](https://github.com/5-stones/huginn_acumen_product_agent/commit/c6cdb91f08cc50c30e83960eb8efb1b5c65c323f))
+
+
+
 ## [1.5.2](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.5.1...v1.5.2) (2020-10-01)
 
 
