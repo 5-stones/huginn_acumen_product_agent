@@ -87,36 +87,23 @@ module AcumenProductQueryConcern
     def get_product_categories(acumen_client, products)
         # fetch categories
 
-        # ----------------------------------------------------------------------
-        skus = products.map { |product| product['sku'] }`
-        #  The above logic is incorrect. This pulls categories for the _master variant_
-        #  In the case of a product with a Paperback and an eBook, only the paperback
-        #  categories are retrieved. There are numerous cases in the system where physical
-        #  products have different categories than digital products (which is contrary
-        #  to our original understanding).
-        #
-        #  This process needs to be changed to fetch the categories for _each sku_ and
-        #  assign them appropriately to the correct variant.
-        #
-        #  This will also likely require a change to the BigCommerce agent to _merge_ digital
-        #  variant categories with the digital product wrapper, and to merge physical variant
-        #  categories with the physical product wrapper.
-        #
-        #  This note can be safely removed once the changes are complete.
-        # ----------------------------------------------------------------------
+        skus = products.map { |product| product['model'].map { |m| m['sku'] } }[0]
         response = acumen_client.get_product_categories(skus)
         categories = process_product_categories_query(response)
 
         # map categories to products
         products.each do |product|
-            sku = product['sku']
-            if categories[sku]
-                active = categories[sku].select { |c| c['inactive'] == '0' }
-                product['categories'] = active.map do |category|
-                  {
-                    '@type' => 'Thing',
-                    'identifier' => category['category_id']
-                  }
+            product['model'].each do |variant|
+                variant['categories'] = []
+                sku = variant['sku']
+                if categories[sku]
+                    active = categories[sku].select { |c| c['inactive'] == '0' }
+                    active.map do |category|
+                      variant['categories'].push({
+                        '@type' => 'Thing',
+                        'identifier' => category['category_id']
+                      })
+                    end
                 end
             end
         end
