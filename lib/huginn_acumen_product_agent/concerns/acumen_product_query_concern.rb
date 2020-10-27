@@ -86,7 +86,24 @@ module AcumenProductQueryConcern
 
     def get_product_categories(acumen_client, products)
         # fetch categories
-        skus = products.map { |product| product['sku'] }
+
+        # ----------------------------------------------------------------------
+        skus = products.map { |product| product['sku'] }`
+        #  The above logic is incorrect. This pulls categories for the _master variant_
+        #  In the case of a product with a Paperback and an eBook, only the paperback
+        #  categories are retrieved. There are numerous cases in the system where physical
+        #  products have different categories than digital products (which is contrary
+        #  to our original understanding).
+        #
+        #  This process needs to be changed to fetch the categories for _each sku_ and
+        #  assign them appropriately to the correct variant.
+        #
+        #  This will also likely require a change to the BigCommerce agent to _merge_ digital
+        #  variant categories with the digital product wrapper, and to merge physical variant
+        #  categories with the physical product wrapper.
+        #
+        #  This note can be safely removed once the changes are complete.
+        # ----------------------------------------------------------------------
         response = acumen_client.get_product_categories(skus)
         categories = process_product_categories_query(response)
 
