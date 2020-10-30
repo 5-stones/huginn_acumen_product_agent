@@ -95,6 +95,7 @@ class AcumenClient
                   <column_name>Inv_Product.Category</column_name>
                   <column_name>Inv_Product.Next_Release</column_name>
                   <column_name>Inv_Product.BO_Reason</column_name>
+                  <column_name>Inv_Product.Not_On_Website</column_name>
               </requested_output>
           </acusoapRequest>
       XML

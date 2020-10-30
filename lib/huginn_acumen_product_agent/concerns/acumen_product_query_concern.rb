@@ -10,7 +10,12 @@ module AcumenProductQueryConcern
 
     def get_products_by_ids(acumen_client, ids)
         response = acumen_client.get_products(ids)
-        products = parse_product_request(response)
+        products = []
+
+        # Filter out Not_On_Website === '1'
+        unless response[0]['Inv_Product.Not_On_Website']['__content__'] === '1'
+            products = parse_product_request(response)
+        end
 
         response = acumen_client.get_products_marketing(ids)
         marketing = parse_product_marketing_request(response)
