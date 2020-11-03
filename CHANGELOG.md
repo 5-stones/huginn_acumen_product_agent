@@ -1,3 +1,18 @@
+## [1.6.1](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.6.0...v1.6.1) (2020-11-03)
+
+
+### Bug Fixes
+
+* **acumen_product_query_concern:** Flag changes for the bug fix ([580f4bf](https://github.com/5-stones/huginn_acumen_product_agent/commit/580f4bfca525a2d29ed9fd9fb3933518902c1031))
+
+
+### Features
+
+* **acumen_client, acumen_product_query_concern:** filter out Not_On_Web ([2b1f330](https://github.com/5-stones/huginn_acumen_product_agent/commit/2b1f330c81282bb9e5100f62253b0bc0d3950bc6))
+* **acumen_product_query_concern:** attach categories to variants ([6635c0f](https://github.com/5-stones/huginn_acumen_product_agent/commit/6635c0f7b1f308181ad443dae1426077f15a1222))
+
+
+
 # [1.6.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.5.2...v1.6.0) (2020-10-12)
 
 
