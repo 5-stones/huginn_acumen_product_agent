@@ -10,7 +10,12 @@ module AcumenProductQueryConcern
 
     def get_products_by_ids(acumen_client, ids)
         response = acumen_client.get_products(ids)
-        products = parse_product_request(response)
+        products = []
+
+        # Filter out Not_On_Website === '1'
+        unless response[0]['Inv_Product.Not_On_Website']['__content__'] === '1'
+            products = parse_product_request(response)
+        end
 
         response = acumen_client.get_products_marketing(ids)
         marketing = parse_product_marketing_request(response)
@@ -86,20 +91,24 @@ module AcumenProductQueryConcern
 
     def get_product_categories(acumen_client, products)
         # fetch categories
-        skus = products.map { |product| product['sku'] }
+
+        skus = products.map { |product| product['model'].map { |m| m['sku'] } }[0]
         response = acumen_client.get_product_categories(skus)
         categories = process_product_categories_query(response)
 
         # map categories to products
         products.each do |product|
-            sku = product['sku']
-            if categories[sku]
-                active = categories[sku].select { |c| c['inactive'] == '0' }
-                product['categories'] = active.map do |category|
-                  {
-                    '@type' => 'Thing',
-                    'identifier' => category['category_id']
-                  }
+            product['model'].each do |variant|
+                variant['categories'] = []
+                sku = variant['sku']
+                if categories[sku]
+                    active = categories[sku].select { |c| c['inactive'] == '0' }
+                    active.map do |category|
+                      variant['categories'].push({
+                        '@type' => 'Thing',
+                        'identifier' => category['category_id']
+                      })
+                    end
                 end
             end
         end
