@@ -11,7 +11,28 @@ module Agents
         default_schedule 'never'
 
         description <<-MD
-      Huginn agent for sane ACUMEN product data.
+      Huginn agent for retrieving sane ACUMEN product data.
+
+      ## Agent Options
+      The following outlines the available options in this agent
+
+      ### Acumen Connection
+      * endpoint: The root URL for the Acumen API
+      * site_code: The site code from Acumen
+      * password: The Acumen API password
+
+      ### Variant Settings
+      * physical_formats: A list of the formats associated with a physical product
+      * digital_formats: A list of the formats associated with a digital product
+
+      ### Product Attributes
+      * attribute_to_property: An optional map linking Acumen attributes to Schema.org
+        product properties.
+
+      ### Other Options
+      * ignore_skus: An optional array of Acumen product skus that will be intentionally
+        excluded from any output.
+
         MD
 
         def default_options
@@ -22,7 +43,6 @@ module Agents
                 'physical_formats' => [],
                 'digital_formats' => [],
                 'attribute_to_property' => {},
-                'contributor_types_map' => {},
             }
         end
 
@@ -49,10 +69,6 @@ module Agents
 
             unless options['attribute_to_property'].is_a?(Hash)
                 errors.add(:base, "if provided, attribute_to_property must be a hash")
-            end
-
-            unless options['contributor_types_map'].is_a?(Hash)
-                errors.add(:base, "if provided, contributor_types_map must be a hash")
             end
 
             if options['ignore_skus']

@@ -12,10 +12,7 @@ module AcumenProductQueryConcern
         response = acumen_client.get_products(ids)
         products = []
 
-        # Filter out Not_On_Website === '1'
-        unless response[0]['Inv_Product.Not_On_Website']['__content__'] === '1'
-            products = parse_product_request(response)
-        end
+        products = parse_product_request(response)
 
         response = acumen_client.get_products_marketing(ids)
         marketing = parse_product_marketing_request(response)
@@ -129,6 +126,7 @@ module AcumenProductQueryConcern
             variant['@type'] = 'ProductModel'
             variant['isDefault'] = false
             variant['isTaxable'] = field_value(p, 'Inv_Product.Taxable') == '1'
+            variant['isAvailableForPurchase'] = field_value(p, 'Inv_Product.Not_On_Website') == '0'
             variant['acumenAttributes'] = {
               'is_master' => field_value(p, 'Inv_Product.OnWeb_LinkOnly') == '0'
             }
@@ -163,6 +161,7 @@ module AcumenProductQueryConcern
                     'info_alpha_1' => field_value(p, 'Inv_Product.Info_Alpha_1'),
                     'info_boolean_1' => field_value(p, 'Inv_Product.Info_Boolean_1'),
                 },
+                'isAvailableForPurchase' => field_value(p, variant['isAvailableForPurchase']),
             }
 
             category = field_value(p, 'Inv_Product.Category')
@@ -426,6 +425,17 @@ module AcumenProductQueryConcern
               end
             end
           end
+
+          model_ids = product['model'].map { |m| m['identifier'] }
+          primary_variant = product['model'].select { |m| m['identifier'] == model_ids.min }.first
+
+          # Set the base SKU to the SKU of the oldest record.
+          # The base_sku property is designed to be a system value specific to the inegration using this agent.
+          # As a result, we don't particularly care what that value is so long as we can retrieve it consistently
+          # across executions. If a paperback product is created first, this will always return that product's SKU
+          # as the base. This gives us a consistent way to link Acumen products to an external system where database
+          # IDs may not match.
+          set_base_sku(product, primary_variant ? primary_variant['sku'] : product['model'][0]['sku'])
         end
         result
     end
@@ -443,6 +453,18 @@ module AcumenProductQueryConcern
 
     def field_value(field, key)
         field[key]['__content__'] if field[key]
+    end
+
+    def set_base_sku(product, sku)
+
+      product['additionalProperty'].push({
+          '@type' => 'PropertyValue',
+          'propertyID' => 'baseSku',
+          'name' => 'Base SKU',
+          'value' => sku,
+      })
+
+      product
     end
 
     def quantitative_value(value, unit)
