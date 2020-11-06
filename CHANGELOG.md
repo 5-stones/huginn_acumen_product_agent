@@ -1,3 +1,12 @@
+# [1.7.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.6.1...v1.7.0) (2020-11-06)
+
+
+### Features
+
+* **lib/huginn_acumen_product_agent:** Update product fetcher ([c77bb49](https://github.com/5-stones/huginn_acumen_product_agent/commit/c77bb493d5e5b383ff6a9d7bc115cca7583bb704))
+
+
+
 ## [1.6.1](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.6.0...v1.6.1) (2020-11-03)
 
 
