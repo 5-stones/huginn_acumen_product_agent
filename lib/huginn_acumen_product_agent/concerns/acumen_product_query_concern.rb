@@ -405,6 +405,7 @@ module AcumenProductQueryConcern
         result.each do |product|
           if product['model'].length == 1
             product['model'][0]['isDefault'] = true
+            set_base_sku(product, product['model'][0]['sku'])
             next
           else
             physical_formats.each do |val|
