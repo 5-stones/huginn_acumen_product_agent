@@ -1,3 +1,12 @@
+## [1.7.1](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.7.0...v1.7.1) (2020-11-13)
+
+
+### Bug Fixes
+
+* **acumen_product_query_concern:** Fix assignment of base sku ([66e1bba](https://github.com/5-stones/huginn_acumen_product_agent/commit/66e1bba7b96b193b52431e570a2c16b62f9eca54))
+
+
+
 # [1.7.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.6.1...v1.7.0) (2020-11-06)
 
 
