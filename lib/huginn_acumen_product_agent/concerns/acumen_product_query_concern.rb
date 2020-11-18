@@ -71,6 +71,28 @@ module AcumenProductQueryConcern
         products
     end
 
+    def get_master_products_by_id(client, products, physical_formats, digital_formats)
+        # for each product check if wrapper product is master product and active
+        # if false store the id of the active master product
+        # run it through get_products_by_ids and add it to products
+        products.each do |product|
+            wrapper_id = product['identifier']
+            correct_id = 0
+            product['model'].each do |variant|
+                if variant['acumenAttributes']['is_master'] && variant['isAvailableForPurchase']
+                    correct_id = variant['identifier']
+                end
+            end
+            if wrapper_id != correct_id && correct_id != 0
+                products.delete(product)
+                products.push(get_products_by_ids(client, [correct_id.to_s])[0])
+                products = get_product_variants(client, products, physical_formats, digital_formats)
+            end
+        end
+
+        products
+    end
+
     def get_product_variants(acumen_client, products, physical_formats, digital_formats)
         ids = products.map { |product| product['identifier'] }
         # fetch product/variant relationships
@@ -88,23 +110,28 @@ module AcumenProductQueryConcern
 
     def get_product_categories(acumen_client, products)
         # fetch categories
+        categories = []
 
-        skus = products.map { |product| product['model'].map { |m| m['sku'] } }[0]
-        response = acumen_client.get_product_categories(skus)
-        categories = process_product_categories_query(response)
+        skus = products.map { |product| product['model'].map { |m| m['sku'] } }
+        skus.each do |sku_set|
+            response = acumen_client.get_product_categories(sku_set)
+            categories.push(process_product_categories_query(response))
+        end
 
         # map categories to products
         products.each do |product|
             product['model'].each do |variant|
                 variant['categories'] = []
                 sku = variant['sku']
-                if categories[sku]
-                    active = categories[sku].select { |c| c['inactive'] == '0' }
-                    active.map do |category|
-                      variant['categories'].push({
-                        '@type' => 'Thing',
-                        'identifier' => category['category_id']
-                      })
+                categories.each do |category|
+                    if category[sku]
+                        actives = category[sku].select { |c| c['inactive'] == '0' }
+                        actives.map do |active|
+                            variant['categories'].push({
+                              '@type' => 'Thing',
+                              'identifier' => active['category_id']
+                            })
+                        end
                     end
                 end
             end
