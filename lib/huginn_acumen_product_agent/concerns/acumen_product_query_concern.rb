@@ -110,29 +110,27 @@ module AcumenProductQueryConcern
 
     def get_product_categories(acumen_client, products)
         # fetch categories
-        categories = []
+        categories_map = {}
 
         skus = products.map { |product| product['model'].map { |m| m['sku'] } }
         skus.each do |sku_set|
-            response = acumen_client.get_product_categories(sku_set)
-            categories.push(process_product_categories_query(response))
+            sku_set.each do |sku|
+              response = acumen_client.get_product_categories([sku])
+              categories = process_product_categories_query(response)
+              categories_map[sku] = categories != {} ? categories[sku] : []
+            end
         end
 
         # map categories to products
         products.each do |product|
             product['model'].each do |variant|
                 variant['categories'] = []
-                sku = variant['sku']
-                categories.each do |category|
-                    if category[sku]
-                        actives = category[sku].select { |c| c['inactive'] == '0' }
-                        actives.map do |active|
-                            variant['categories'].push({
-                              '@type' => 'Thing',
-                              'identifier' => active['category_id']
-                            })
-                        end
-                    end
+                categories = categories_map[variant['sku']].select { |c| c['inactive'] == '0' }
+                categories.map do |c|
+                    variant['categories'].push({
+                      '@type' => 'Thing',
+                      'identifier' => c['category_id']
+                    })
                 end
             end
         end
