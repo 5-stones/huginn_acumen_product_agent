@@ -112,7 +112,7 @@ module Agents
             ids = event.payload['ids']
             products = get_products_by_ids(client, ids)
             products = get_product_variants(client, products, physical_formats, digital_formats)
-            products = get_master_products_by_id(client, products, physical_formats, digital_formats)
+            products = get_master_products_by_id(client, products)
             products = get_product_categories(client, products)
             products = get_product_contributors(client, products)
 

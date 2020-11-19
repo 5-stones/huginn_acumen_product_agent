@@ -71,26 +71,32 @@ module AcumenProductQueryConcern
         products
     end
 
-    def get_master_products_by_id(client, products, physical_formats, digital_formats)
-        # for each product check if wrapper product is master product and active
-        # if false store the id of the active master product
-        # run it through get_products_by_ids and add it to products
+    def get_master_products_by_id(client, products)
+        master_products = []
+
         products.each do |product|
             wrapper_id = product['identifier']
-            correct_id = 0
+            master_id = 0
             product['model'].each do |variant|
                 if variant['acumenAttributes']['is_master'] && variant['isAvailableForPurchase']
-                    correct_id = variant['identifier']
+                    master_id = variant['identifier']
                 end
             end
-            if wrapper_id != correct_id && correct_id != 0
-                products.delete(product)
-                products.push(get_products_by_ids(client, [correct_id.to_s])[0])
-                products = get_product_variants(client, products, physical_formats, digital_formats)
+            if wrapper_id == master_id || master_id == 0
+                master_products.push(product)
+            else
+                if (master_products.find { |p| p['identifier'] == master_id }).nil?
+                    reloaded_product = get_products_by_ids(client, [master_id.to_s])[0]
+
+                    unless reloaded_product.nil?
+                        reloaded_product['model'] = product['model']
+                        master_products.push(reloaded_product)
+                    end
+                end
             end
         end
 
-        products
+        master_products
     end
 
     def get_product_variants(acumen_client, products, physical_formats, digital_formats)
