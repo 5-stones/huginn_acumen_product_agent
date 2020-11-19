@@ -71,6 +71,34 @@ module AcumenProductQueryConcern
         products
     end
 
+    def get_master_products_by_id(client, products)
+        master_products = []
+
+        products.each do |product|
+            wrapper_id = product['identifier']
+            master_id = 0
+            product['model'].each do |variant|
+                if variant['acumenAttributes']['is_master'] && variant['isAvailableForPurchase']
+                    master_id = variant['identifier']
+                end
+            end
+            if wrapper_id == master_id || master_id == 0
+                master_products.push(product)
+            else
+                if (master_products.find { |p| p['identifier'] == master_id }).nil?
+                    reloaded_product = get_products_by_ids(client, [master_id.to_s])[0]
+
+                    unless reloaded_product.nil?
+                        reloaded_product['model'] = product['model']
+                        master_products.push(reloaded_product)
+                    end
+                end
+            end
+        end
+
+        master_products
+    end
+
     def get_product_variants(acumen_client, products, physical_formats, digital_formats)
         ids = products.map { |product| product['identifier'] }
         # fetch product/variant relationships
@@ -88,24 +116,27 @@ module AcumenProductQueryConcern
 
     def get_product_categories(acumen_client, products)
         # fetch categories
+        categories_map = {}
 
-        skus = products.map { |product| product['model'].map { |m| m['sku'] } }[0]
-        response = acumen_client.get_product_categories(skus)
-        categories = process_product_categories_query(response)
+        skus = products.map { |product| product['model'].map { |m| m['sku'] } }
+        skus.each do |sku_set|
+            sku_set.each do |sku|
+              response = acumen_client.get_product_categories([sku])
+              categories = process_product_categories_query(response)
+              categories_map[sku] = categories != {} ? categories[sku] : []
+            end
+        end
 
         # map categories to products
         products.each do |product|
             product['model'].each do |variant|
                 variant['categories'] = []
-                sku = variant['sku']
-                if categories[sku]
-                    active = categories[sku].select { |c| c['inactive'] == '0' }
-                    active.map do |category|
-                      variant['categories'].push({
-                        '@type' => 'Thing',
-                        'identifier' => category['category_id']
-                      })
-                    end
+                categories = categories_map[variant['sku']].select { |c| c['inactive'] == '0' }
+                categories.map do |c|
+                    variant['categories'].push({
+                      '@type' => 'Thing',
+                      'identifier' => c['category_id']
+                    })
                 end
             end
         end
