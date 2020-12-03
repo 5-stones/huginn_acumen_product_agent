@@ -90,6 +90,7 @@ module AcumenProductQueryConcern
 
                     unless reloaded_product.nil?
                         reloaded_product['model'] = product['model']
+                        reloaded_product['additionalProperty'].push(product['additionalProperty'].select { |m| m['propertyID'] == 'baseSku'}[0])
                         master_products.push(reloaded_product)
                     end
                 end
