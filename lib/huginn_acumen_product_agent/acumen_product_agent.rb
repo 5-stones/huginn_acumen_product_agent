@@ -3,7 +3,12 @@
 module Agents
     class AcumenProductAgent < Agent
         include WebRequestConcern
-        include AcumenProductQueryConcern
+        include AcumenQueryConcern
+        include InvProductQueryConcern
+        include ProdMktQueryConcern
+        include ProductContributorsQueryConcern
+        include ProductCategoriesQueryConcern
+        include AlternateProductsQueryConcern
 
         default_schedule '12h'
 
@@ -11,27 +16,86 @@ module Agents
         default_schedule 'never'
 
         description <<-MD
-      Huginn agent for retrieving sane ACUMEN product data.
+        Huginn agent for retrieving sane ACUMEN product data.
 
-      ## Agent Options
-      The following outlines the available options in this agent
+        ## Agent Options
+        The following outlines the available options in this agent
 
-      ### Acumen Connection
-      * endpoint: The root URL for the Acumen API
-      * site_code: The site code from Acumen
-      * password: The Acumen API password
+        ### Acumen Connection
+        * endpoint: The root URL for the Acumen API
+        * site_code: The site code from Acumen
+        * password: The Acumen API password
 
-      ### Variant Settings
-      * physical_formats: A list of the formats associated with a physical product
-      * digital_formats: A list of the formats associated with a digital product
+        ### Format Options
+        * digital_formats: A list of the formats associated with a digital product
 
-      ### Product Attributes
-      * attribute_to_property: An optional map linking Acumen attributes to Schema.org
-        product properties.
+        ### Product Attributes
+        * attribute_to_property: An optional map linking Acumen attributes to Schema.org
+          product properties.
 
-      ### Other Options
-      * ignore_skus: An optional array of Acumen product skus that will be intentionally
-        excluded from any output.
+        ### Other Options
+        * ignore_skus: An optional array of Acumen product skus that will be intentionally
+          excluded from any output.
+
+        ### Event Output
+        This agent will output one of two event types during processing:
+
+        *  Product bundles
+        *  Processing Errors
+
+        The product bundle payload will be structured as:
+
+        ```
+        {
+          products: [ { ... }, { ... }, ... ],
+          status: 200
+        }
+        ```
+
+        The processing error payload will be structured as:
+
+        ```
+        {
+          status: 500,
+          scope: '[Process Name]',
+          message: '[Error Message]',
+          data: { ... },
+          trace: [ ... ]
+        }
+        ```
+
+        ### Payload Status
+
+        `status: 200`: Indicates a true success. The agent has output the full
+        range of expected data.
+
+        `status: 206`: Indicates a partial success. The products within the bundle
+        are vaild, but the bundle _may_ be missing products that were somehow invalid.
+
+        `status: 500`: Indicates a processing error. This may represent a complete
+        process failure, but may also be issued in parallel to a `202` payload.
+
+        Because this agent receives an array of Product IDs as input, errors will be issued in
+        such a way that product processing can recover when possible. Errors that occur within
+        a specific product bundle will emit an error event, but the agent will then move
+        forward processing the next bundle.
+
+        For example, if this agent receives two products as input (`A` and `B`), and we fail to
+        load the Inv_Product record for product `A`, the agent would emit an error payload of:
+
+        ```
+        {
+          status: 500,
+          scope: 'Fetch Inv_Product Data',
+          message: 'Failed to lookup Inv_Product record for Product A',
+          data: { product_id: 123 },
+          trace: [ ... ]
+        }
+        ```
+
+        The goal of this approach is to ensure the agent outputs as much data as reasonably possible
+        with each execution. If there is an error in the Paperback version of a title, that shouldn't
+        prevent this agent from returning the Hardcover version.
 
         MD
 
@@ -40,7 +104,6 @@ module Agents
                 'endpoint' => 'https://example.com',
                 'site_code' => '',
                 'password' => '',
-                'physical_formats' => [],
                 'digital_formats' => [],
                 'attribute_to_property' => {},
             }
@@ -59,10 +122,6 @@ module Agents
                 errors.add(:base, 'password is a required field')
             end
 
-            unless options['physical_formats'].present?
-                errors.add(:base, "physical_formats is a required field")
-            end
-
             unless options['digital_formats'].present?
                 errors.add(:base, "digital_formats is a required field")
             end
@@ -72,9 +131,9 @@ module Agents
             end
 
             if options['ignore_skus']
-              unless options['ignore_skus'].is_a?(Array)
-                  errors.add(:base, "if provided, ignore_skus must be an array")
-              end
+                unless options['ignore_skus'].is_a?(Array)
+                    errors.add(:base, "if provided, ignore_skus must be an array")
+                end
             end
         end
 
@@ -95,13 +154,14 @@ module Agents
         private
 
         def handle(event)
+            # Process agent options
             endpoint = interpolated['endpoint']
             site_code = interpolated['site_code']
             password = interpolated['password']
-            physical_formats = interpolated['physical_formats']
             digital_formats = interpolated['digital_formats']
-            ignore_skus = interpolated['ignore_skus'] ? interpolated['ignore_skus'] : []
+            ignored_skus = interpolated['ignore_skus'] ? interpolated['ignore_skus'] : []
 
+            # Configure the Acumen Client
             auth = {
                 'site_code' => site_code,
                 'password' => password,
@@ -110,33 +170,62 @@ module Agents
             client = AcumenClient.new(faraday, auth)
 
             ids = event.payload['ids']
-            products = get_products_by_ids(client, ids)
-            products = get_product_variants(client, products, physical_formats, digital_formats)
-            products = get_master_products_by_id(client, products)
-            products = get_product_categories(client, products)
-            products = get_product_contributors(client, products)
 
-            # map attributes
-            products.map do |product|
-                map_attributes(product)
-
-                product['model'].each do |model|
-                    map_attributes(model)
-                end
-
-                product
-            end
-
-            products.each do |product|
-                unless ignore_skus.include?(product['sku'])
-                  create_event payload: product
-                end
-            end
+            # Load Products
+            fetch_product_bundles(client, ids, digital_formats, ignored_skus)
         end
 
         private
 
+        # Returns an array of Product objects for the provided product_ids.
+        # Each object is a merged representation of all the individual Acumen tables
+        # that make up a product record with fields mapped to the schema.org/Product
+        # object definition.
+        def fetch_products(acumen_client, product_ids, digital_format_list)
+            products = fetch_inv_product_data(acumen_client, product_ids, digital_format_list)
+            products = fetch_product_marketing(acumen_client, products)
+            products = fetch_product_contributors(acumen_client, products)
+            products = fetch_product_categories(acumen_client, products)
+
+            products.each do |product|
+                map_attributes(product)
+            end
+
+            return products
+        end
+
+        # Returns an array of product bundles for the provided `products` array.
+        # Each bundle will contain an array of all the product definitions for each
+        # format of a given title.
+        #
+        # NOTE: The generated bundles will contain both active and inactive products
+        # to facilitate product deletion in external systems.
+        def fetch_product_bundles(acumen_client, product_ids, digital_format_list, ignored_skus)
+
+          begin
+            alternate_ids_map = fetch_alternate_format_ids(acumen_client, product_ids)
+
+            bundles = product_ids.map do |id|
+              bundle_ids = alternate_ids_map[id]
+              bundle_ids.append(id) unless bundle_ids.include?(id)
+              bundle = fetch_products(acumen_client, bundle_ids.sort, digital_format_list)
+
+              # Filter out any products that are explicitly ignored by SKU
+              bundle.select { |p| !ignored_skus.include?(p['sku']) }
+
+              create_event payload: { products: bundle, status: 200 }
+            end
+          rescue AcumenAgentError => e
+            issue_error(e)
+          end
+        end
+
+        # Maps additional Acumen attributes to the `additionalProperty` array
+        # NOTE:  Attributes mapped in this way will be _removed_ from the
+        # `acumenAttributes` array.
         def map_attributes(product)
+
+
             attribute_to_property = interpolated['attribute_to_property']
             attributes = product['acumenAttributes']
 
