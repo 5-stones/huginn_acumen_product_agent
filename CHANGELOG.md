@@ -1,3 +1,12 @@
+# [2.0.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.7.3...v2.0.0) (2021-01-14)
+
+
+### Features
+
+* **data_processor_concern:** Rework acumen data processing ([ff4953f](https://github.com/5-stones/huginn_acumen_product_agent/commit/ff4953f4cd5cf1ee3cf3799dfec8a9899c19b6d1))
+
+
+
 ## [1.7.3](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.7.2...v1.7.3) (2020-12-03)
 
 
