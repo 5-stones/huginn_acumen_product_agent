@@ -34,7 +34,7 @@ module ProdMktQueryConcern
           'ProdMkt.Description_Long' => 'description_long',
           'ProdMkt.Height' => 'height',
           'ProdMkt.Width' => 'width',
-          'ProdMkt.Thickness' => 'depth',
+          'ProdMkt.Thickness' => 'thickness',
           'ProdMkt.Meta_Keywords' => 'meta_keywords',
           'ProdMkt.Meta_Description' => 'meta_description',
           'ProdMkt.Extent_Unit' => 'extent_unit',
