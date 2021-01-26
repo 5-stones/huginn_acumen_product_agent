@@ -12,14 +12,25 @@
 module AlternateProductsQueryConcern
   extend AcumenQueryConcern
 
-  # Fetches the Inv_Product.ID for alternate formats of the provided product_ids
+  # This function returns two data elements in a hash object.
+  # The `id_set` is the full collection of IDs to be fetched including the input
+  # product_ids and all of their alternate format ids. The goal of this value
+  # is to reduce the resource requirements of running each "bundle" individually
+  #
+  # The alternate_ids_map contains arrays of product IDs mapped to their master
+  # product id. This map will be used to assemble fetched product data into bundles
   def fetch_alternate_format_ids(acumen_client, product_ids)
     begin
       link_data = acumen_client.get_linked_products(product_ids)
 
       links = process_alternate_format_response(link_data)
 
-      return map_alternate_format_links(links, product_ids)
+      mapped_ids = map_alternate_format_links(links, product_ids)
+
+      id_set = [] + product_ids
+      mapped_ids.each_value { |bundle| id_set += bundle }
+
+      return {id_set: id_set, alternate_ids_map: mapped_ids }
     rescue => error
       issue_error(AcumenAgentError.new(
         'fetch_alternate_format_ids',

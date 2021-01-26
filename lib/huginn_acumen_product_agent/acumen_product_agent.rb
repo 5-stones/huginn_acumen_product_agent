@@ -194,24 +194,28 @@ module Agents
             return products
         end
 
-        # Returns an array of product bundles for the provided `products` array.
-        # Each bundle will contain an array of all the product definitions for each
-        # format of a given title.
+        # Loads product bundles for the provided `product_ids` array and emits
+        # a unique event payload for each bundle. Emitted events will contain an
+        # array of all the product definitions for each format of a given title.
         #
         # NOTE: The generated bundles will contain both active and inactive products
         # to facilitate product deletion in external systems.
         def fetch_product_bundles(acumen_client, product_ids, digital_format_list, ignored_skus)
 
           begin
-            alternate_ids_map = fetch_alternate_format_ids(acumen_client, product_ids)
+            data = fetch_alternate_format_ids(acumen_client, product_ids)
+            full_id_set = data[:id_set]
+            alternate_ids_map = data[:alternate_ids_map]
+            product_data = fetch_products(acumen_client, full_id_set, digital_format_list)
 
             bundles = product_ids.map do |id|
               bundle_ids = alternate_ids_map[id]
               bundle_ids.append(id) unless bundle_ids.include?(id)
-              bundle = fetch_products(acumen_client, bundle_ids.sort, digital_format_list)
+              bundle_ids.sort()
 
+              bundle = bundle_ids.map { |id| product_data.find {|p| p['identifier'] == id} }
               # Filter out any products that are explicitly ignored by SKU
-              bundle.select { |p| !ignored_skus.include?(p['sku']) }
+              bundle = bundle.select { |p| !ignored_skus.include?(p['sku']) }
 
               create_event payload: { products: bundle, status: 200 }
             end
