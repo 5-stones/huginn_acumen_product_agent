@@ -213,9 +213,12 @@ module Agents
               bundle_ids.append(id) unless bundle_ids.include?(id)
               bundle_ids.sort()
 
-              bundle = bundle_ids.map { |b_id| product_data.find {|p| p['identifier'] == b_id} }
-              # Filter out any products that are explicitly ignored by SKU
-              bundle = bundle.select { |p| !ignored_skus.include?(p['sku']) }
+              bundle = []
+              bundle_ids.each() do |b_id|
+                # Filter out any products that are explicitly ignored by SKU
+                product = product_data.find { |p| p['identifier'] == b_id.to_s }
+                bundle << product unless ignored_skus.include?(product['sku'])
+              end
 
               create_event payload: { products: bundle, status: 200 }
             end
