@@ -41,7 +41,7 @@ module ProductCategoriesQueryConcern
           results[product_sku] = [mapped] if mapped['inactive'] == '0'
         end
       rescue => error
-        issue_errpr(AcumenAgentError.new(
+        issue_error(AcumenAgentError.new(
           'process_product_category_response',
           'Failed while processing category data',
           product_category,

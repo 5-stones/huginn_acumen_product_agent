@@ -213,7 +213,7 @@ module Agents
               bundle_ids.append(id) unless bundle_ids.include?(id)
               bundle_ids.sort()
 
-              bundle = bundle_ids.map { |id| product_data.find {|p| p['identifier'] == id} }
+              bundle = bundle_ids.map { |b_id| product_data.find {|p| p['identifier'] == b_id} }
               # Filter out any products that are explicitly ignored by SKU
               bundle = bundle.select { |p| !ignored_skus.include?(p['sku']) }
 
