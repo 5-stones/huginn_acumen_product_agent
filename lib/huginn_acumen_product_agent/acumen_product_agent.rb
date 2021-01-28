@@ -217,7 +217,10 @@ module Agents
               bundle_ids.each() do |b_id|
                 # Filter out any products that are explicitly ignored by SKU
                 product = product_data.find { |p| p['identifier'] == b_id.to_s }
-                bundle << product unless ignored_skus.include?(product['sku'])
+                bundle << product unless product.nil? || ignored_skus.include?(product['sku'])
+                # NOTE: The product.nil? check is designed to handle cases where a product link
+                # points to a non existent product. Conventionally this shouldn't happen, but
+                # we've seen it, and need to account for it.
               end
 
               create_event payload: { products: bundle, status: 200 }
