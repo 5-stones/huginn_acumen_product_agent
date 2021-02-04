@@ -1,5 +1,6 @@
 class AcumenAgentError < StandardError
-  attr_reader :thing
+  attr_reader :scope, :data, :original_error
+
   def initialize(scope, message, data, original_error)
     @scope = scope
     @data = data
