@@ -35,7 +35,7 @@ module InvProductQueryConcern
 
         product['@type'] = 'Product'
         product['isTaxable'] = get_field_value(p, 'Inv_Product.Taxable') == '1'
-        product['isAvailableForPurchase'] = get_field_value(p, 'Inv_Product.Not_On_Website') == '0'
+        product['productAvailability'] = get_field_value(p, 'Inv_Product.Not_On_Website') == '0'
         product['acumenAttributes'] = {
           'info_alpha_1' => get_field_value(p, 'Inv_Product.Info_Alpha_1'),
           'info_boolean_1' => get_field_value(p, 'Inv_Product.Info_Boolean_1'), # is_available_on_formed
@@ -45,6 +45,12 @@ module InvProductQueryConcern
               '@type' => 'PropertyValue',
               'propertyID' => 'is_master',
               'value' => get_field_value(p, 'Inv_Product.OnWeb_LinkOnly') == '0',
+          },
+          {
+              # NOTE: This is different than isAvailableForPurchase. This
+              '@type' => 'PropertyValue',
+              'propertyID' => 'disable_web_purchase',
+              'value' => get_field_value(p, 'Inv_Product.Disable_Web_Purchase'),
           }
         ]
 
@@ -61,6 +67,22 @@ module InvProductQueryConcern
             'availability' => get_field_value(p, 'Inv_Product.BO_Reason')
           })
         end
+
+        not_on_website = get_field_value(p, 'Inv_Product.Not_On_Website')
+        disable_web_purchase = get_field_value(p, 'Inv_Product.Disable_Web_Purchase')
+
+        product_availability = 'available'
+
+
+        if (disable_web_purchase == '1')
+          product_availability = 'disabled'
+        end
+
+        if (not_on_website == '1')
+          product_availability = 'not available'
+        end
+
+        product['productAvailability'] = product_availability
 
         weight = get_field_value(p, 'Inv_Product.Weight')
         product['weight'] = get_quantitative_value(weight, 'oz.')
@@ -97,7 +119,7 @@ module InvProductQueryConcern
         issue_error(AcumenAgentError.new(
           'process_inv_product_response',
           'Failed to load Inventory Product Records',
-          { product_ids: product_ids },
+          { raw_data: raw_data },
           error,
         ))
 
