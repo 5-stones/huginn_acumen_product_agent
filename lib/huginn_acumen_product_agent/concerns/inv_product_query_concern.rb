@@ -33,6 +33,15 @@ module InvProductQueryConcern
             'Inv_Product.Next_Release' => 'releaseDate',
         })
 
+        # Nullify blank dates
+        if product['datePublished'] == '0000-00-00T00:00:00'
+          product['datePublished'] = nil
+        end
+
+        if product['releaseDate'] == '0000-00-00T00:00:00'
+          product['releaseDate'] = nil
+        end
+
         product['@type'] = 'Product'
         product['isTaxable'] = get_field_value(p, 'Inv_Product.Taxable') == '1'
         product['productAvailability'] = get_field_value(p, 'Inv_Product.Not_On_Website') == '0'

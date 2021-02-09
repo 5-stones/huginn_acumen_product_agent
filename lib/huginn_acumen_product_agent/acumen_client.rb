@@ -19,6 +19,12 @@ class AcumenClient
       get_results(response, 'ProdMkt')
   end
 
+  def get_inv_status(skus)
+      body = build_inv_status_query(skus)
+      response = execute_in_list_query(body, {})
+      get_results(response, 'Inv_Status')
+  end
+
   def get_linked_products(ids)
       body = build_linked_product_query(ids)
       response = execute_in_list_query(body, {})
@@ -147,6 +153,28 @@ class AcumenClient
                   <column_name>ProdMkt.Info_Text_02</column_name>
                   <column_name>ProdMkt.Religious_Text_Identifier</column_name>
                   <column_name>ProdMkt.Info_Alpha_07</column_name>
+              </requested_output>
+          </acusoapRequest>
+      XML
+  end
+
+  def build_inv_status_query(skus)
+      <<~XML
+          <acusoapRequest>
+              #{build_acumen_query_auth()}
+              <query>
+                <statement>
+                  <column_name>Inv_Status.ProdCode</column_name>
+                  <comparator>in</comparator>
+                  <value>#{skus.join(',')}</value>
+                </statement>
+              </query>
+              <requested_output>
+                <view_owner_table_name>Inv_Status</view_owner_table_name>
+                <view_name>Inv_StatusAllRead</view_name>
+                  <column_name>Inv_Status.Warehouse</column_name>
+                  <column_name>Inv_Status.ProdCode</column_name>
+                  <column_name>Inv_Status.Available</column_name>
               </requested_output>
           </acusoapRequest>
       XML
