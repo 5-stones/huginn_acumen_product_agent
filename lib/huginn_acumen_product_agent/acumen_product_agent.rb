@@ -184,11 +184,13 @@ module Agents
         def fetch_products(acumen_client, product_ids, digital_format_list)
             products = fetch_inv_product_data(acumen_client, product_ids, digital_format_list)
             products = fetch_product_marketing(acumen_client, products)
+            products = fetch_inv_status(acumen_client, products)
             products = fetch_product_contributors(acumen_client, products)
             products = fetch_product_categories(acumen_client, products)
 
             products.each do |product|
                 map_attributes(product)
+                update_availability(product)
             end
 
             return products
@@ -252,5 +254,17 @@ module Agents
                 end
             end
         end
+
+        def update_availability(product)
+          stock_quantity = product['acumenAttributes']['stock_quantity']
+          publication_date = product['datePublished']
+          stock_quantity = stock_quantity.present? ? stock_quantity.to_i : 0
+
+
+          if (!product['isDigital'] && product['productAvailability'] == 'available' && stock_quantity < 1)
+            product['productAvailability'] = publication_date && publication_date.to_datetime.after?(DateTime.current().end_of_day) ? 'preorder' : 'disabled'
+          end
+        end
+
     end
 end
