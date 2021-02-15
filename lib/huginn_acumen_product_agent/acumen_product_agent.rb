@@ -262,7 +262,7 @@ module Agents
 
 
           if (!product['isDigital'] && product['productAvailability'] == 'available' && stock_quantity < 1)
-            product['productAvailability'] = publication_date && publication_date.to_datetime.after?(DateTime.current().end_of_day) ? 'preorder' : 'disabled'
+            product['productAvailability'] = publication_date && publication_date.to_datetime > DateTime.current().end_of_day ? 'preorder' : 'disabled'
           end
         end
 
