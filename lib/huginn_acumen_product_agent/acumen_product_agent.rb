@@ -256,14 +256,20 @@ module Agents
         end
 
         def update_availability(product)
-          stock_quantity = product['acumenAttributes']['stock_quantity']
-          publication_date = product['datePublished']
-          stock_quantity = stock_quantity.present? ? stock_quantity.to_i : 0
+            stock_quantity = product['acumenAttributes']['stock_quantity']
+            publication_date = product['datePublished']
+            no_backorder_fill = product['noBackorderFill']
+            stock_quantity = stock_quantity.present? ? stock_quantity.to_i : 0
 
-
-          if (!product['isDigital'] && product['productAvailability'] == 'available' && stock_quantity < 1)
-            product['productAvailability'] = publication_date && publication_date.to_datetime > DateTime.current().end_of_day ? 'preorder' : 'disabled'
-          end
+            if (!product['isDigital'] && product['productAvailability'] == 'available')
+                if ((publication_date && publication_date.to_datetime > DateTime.current().end_of_day) || (!no_backorder_fill && stock_quantity < 1))
+                    product['productAvailability'] = 'preorder'
+                end
+                
+                if (no_backorder_fill && stock_quantity < 1)
+                    product['productAvailability'] = 'not available'
+                end
+            end
         end
 
     end

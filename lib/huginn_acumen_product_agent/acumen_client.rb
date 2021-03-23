@@ -104,6 +104,7 @@ class AcumenClient
                   <column_name>Inv_Product.Not_On_Website</column_name>
                   <column_name>Inv_Product.Not_Active</column_name>
                   <column_name>Inv_Product.Disable_Web_Purchase</column_name>
+                  <column_name>Inv_Product.No_Backorder_Fill</column_name>
               </requested_output>
           </acusoapRequest>
       XML
