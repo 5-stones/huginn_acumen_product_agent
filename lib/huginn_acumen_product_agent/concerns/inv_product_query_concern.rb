@@ -45,6 +45,7 @@ module InvProductQueryConcern
         product['@type'] = 'Product'
         product['isTaxable'] = get_field_value(p, 'Inv_Product.Taxable') == '1'
         product['productAvailability'] = get_field_value(p, 'Inv_Product.Not_On_Website') == '0'
+        product['noBackorderFill'] = get_field_value(p, 'Inv_Product.No_Backorder_Fill') == '1'
         product['acumenAttributes'] = {
           'info_alpha_1' => get_field_value(p, 'Inv_Product.Info_Alpha_1'),
           'info_boolean_1' => get_field_value(p, 'Inv_Product.Info_Boolean_1'), # is_available_on_formed
