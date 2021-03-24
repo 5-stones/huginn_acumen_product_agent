@@ -1,3 +1,23 @@
+# [2.1.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v2.0.0...v2.1.0) (2021-03-24)
+
+
+### Bug Fixes
+
+* **acumen_product_agent:** Consolidate API calls ([108c3e5](https://github.com/5-stones/huginn_acumen_product_agent/commit/108c3e596d9037b54e8f55a8bedc2d7f5fcbd80e))
+* **acumen_product_agent:** Fix execution failure when products only have one format ([1b5ad0f](https://github.com/5-stones/huginn_acumen_product_agent/commit/1b5ad0f42ed5c11617f84989387ee7ea16a49b9d))
+* **acumen_product_agent:** fix nill reference ([4608970](https://github.com/5-stones/huginn_acumen_product_agent/commit/460897068bf4ba1c99590450c6878b804753a672))
+* **acumen_product-agent:** fix error in retrieving related products ([5ec977c](https://github.com/5-stones/huginn_acumen_product_agent/commit/5ec977cddd021c81a1a4d0a8e71afd81ced44cb9))
+* **concerns:** Fix hadnling of product availability ([6946edd](https://github.com/5-stones/huginn_acumen_product_agent/commit/6946edd1814e29d4fde689f0c1095f407b640a50))
+* **concerns, acumen_product_agent:** Adjust product availability ([0731e10](https://github.com/5-stones/huginn_acumen_product_agent/commit/0731e10b75c0dac4289f859a3985143fda7cb1c6))
+* **prod_mkt_query_concern:** Fix mapping of product dimensions ([d24d1f2](https://github.com/5-stones/huginn_acumen_product_agent/commit/d24d1f27fba706a2a72f172f1fea84fd6ab467cf))
+
+
+### Features
+
+* **acumen_client, acumen_product_agent:** backorder updates ([f12f069](https://github.com/5-stones/huginn_acumen_product_agent/commit/f12f0692469a5fe5daccbc45580293097ceeeeed))
+
+
+
 # [2.0.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v1.7.3...v2.0.0) (2021-01-14)
 
 
