@@ -104,7 +104,7 @@ module ProductContributorsQueryConcern
         issue_error(AcumenAgentError.new(
           'map_contributor_data',
           'Failed while mapping contributor data to products',
-          { product: product, contributors: contributor_data, contributor_types: contributor_type_data },
+          { id: product['identifier'], sku: product['sku'] },
           error
         ))
       end

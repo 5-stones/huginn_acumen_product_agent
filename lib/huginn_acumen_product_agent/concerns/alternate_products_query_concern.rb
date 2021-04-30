@@ -63,7 +63,7 @@ module AlternateProductsQueryConcern
         issue_error(AcumenAgentError.new(
           'process_alternate_format_response',
           'Failed while processing alternate format links',
-          raw_data,
+          { product_id: get_field_value(link, 'Product_Link.Link_From_ID') },
           error
         ))
       end

@@ -62,7 +62,7 @@ module ProdMktQueryConcern
         issue_error(AcumenAgentError.new(
           'process_prod_mkt_response',
           'Failed while processing Prod_Mkt record',
-          product_marketing,
+          { sku: get_field_value(product_marketing, 'ProdMkt.Product_Code') },
           error,
         ))
       end
@@ -150,7 +150,7 @@ module ProdMktQueryConcern
         issue_error(AcumenAgentError.new(
           'map_marketing_data',
           'Failed to map marketing data for product',
-          { product: product, marketing: marketing },
+          { id: product['identifier'], sku: marketing['sku'] },
           error,
         ))
       end
