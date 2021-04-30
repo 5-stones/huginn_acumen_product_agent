@@ -34,7 +34,7 @@ module ProdMktQueryConcern
         issue_error(AcumenAgentError.new(
           'process_inv_status_response',
           'Failed while processing Prod_Mkt record',
-          inv_status,
+          { sku: get_field_value(inv_status, 'Inv_Status.ProdCode') },
           error,
         ))
       end
@@ -63,7 +63,7 @@ module ProdMktQueryConcern
         issue_error(AcumenAgentError.new(
           'map_inv_status_data',
           'Failed to map inventory data for product',
-          { product: product, inventory_data: inventory_data },
+          { sku: product['sku'] },
           error,
         ))
       end

@@ -129,7 +129,10 @@ module InvProductQueryConcern
         issue_error(AcumenAgentError.new(
           'process_inv_product_response',
           'Failed to load Inventory Product Records',
-          { raw_data: raw_data },
+          {
+            product_id: get_field_value(p, 'Inv_Product.ID'),
+            sku: get_field_value(p, 'Inv_Product.ProdCode')
+          },
           error,
         ))
 

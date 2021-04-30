@@ -50,9 +50,7 @@ module AcumenQueryConcern
       status: status,
       scope: error.scope,
       message: error.message,
-      original_error: error.original_error,
       data: error.data,
-      trace: error.original_error.backtrace,
     }
   end
 end
