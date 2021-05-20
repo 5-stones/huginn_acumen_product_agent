@@ -2,6 +2,7 @@
 
 module Agents
     class AcumenProductAgent < Agent
+        include LongRunnable
         include WebRequestConcern
         include AcumenQueryConcern
         include InvProductQueryConcern
@@ -169,10 +170,13 @@ module Agents
             }
             client = AcumenClient.new(faraday, auth)
 
-            ids = event.payload['ids']
+            data = event.payload['ids']
 
-            # Load Products
-            fetch_product_bundles(client, ids, digital_formats, ignored_skus)
+            data.each_slice(20) { |ids|
+              # Load Products
+              fetch_product_bundles(client, ids, digital_formats, ignored_skus)
+            }
+
         end
 
         private
@@ -265,12 +269,23 @@ module Agents
                 if ((publication_date && publication_date.to_datetime > DateTime.current().end_of_day) || (!no_backorder_fill && stock_quantity < 1))
                     product['productAvailability'] = 'preorder'
                 end
-                
+
                 if (no_backorder_fill && stock_quantity < 1)
                     product['productAvailability'] = 'not available'
                 end
             end
         end
 
+        class Worker < LongRunnable::Worker
+
+          def run
+            @started_at = Time.now
+
+          end
+
+          def stop
+            thread.terminate
+          end
+        end
     end
 end
