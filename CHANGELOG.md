@@ -1,3 +1,12 @@
+# [2.2.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v2.1.0...v2.2.0) (2021-05-25)
+
+
+### Bug Fixes
+
+* **error handling:** Reduce the data footprint of error payloads ([ed1be20](https://github.com/5-stones/huginn_acumen_product_agent/commit/ed1be205ce198c73534049f6fd4a32f0db3053a2))
+
+
+
 # [2.1.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v2.0.0...v2.1.0) (2021-03-24)
 
 
