@@ -261,7 +261,7 @@ module Agents
             no_backorder_fill = product['noBackorderFill']
             stock_quantity = stock_quantity.present? ? stock_quantity.to_i : 0
 
-            if (!product['isDigital'] && product['productAvailability'] == 'available')
+            if (!product['isDigital'] && product['productAvailability'] == 'available' && product['trackInventory'])
                 if ((publication_date && publication_date.to_datetime > DateTime.current().end_of_day) || (!no_backorder_fill && stock_quantity < 1))
                     product['productAvailability'] = 'preorder'
                 end
