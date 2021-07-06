@@ -53,9 +53,10 @@ module AlternateProductsQueryConcern
           'Product_Link.Link_From_ID' => 'from_id',
           'Product_Link.Link_To_ID' => 'to_id',
           'Product_Link.Alt_Format' => 'alt_format',
+          'Product_Link.Inactive' => 'inactive',
         })
 
-        if mapped['alt_format'].to_s != '0' && !mapped.in?(results)
+        if mapped['inactive'] == '0' && mapped['alt_format'].to_s != '0' && !mapped.in?(results)
           results.push(mapped)
         end
 
