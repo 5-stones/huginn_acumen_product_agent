@@ -239,6 +239,7 @@ class AcumenClient
               <column_name>Product_Link.Link_From_ID</column_name>
               <column_name>Product_Link.Link_To_ID</column_name>
               <column_name>Product_Link.Alt_Format</column_name>
+              <column_name>Product_Link.Inactive</column_name>
             </requested_output>
           </acusoapRequest>
       XML
