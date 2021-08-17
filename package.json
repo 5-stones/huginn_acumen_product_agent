@@ -1,6 +1,6 @@
 {
   "name": "huginn_acumen_product_agent",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Huginn agent for sane ACUMEN product data",
   "scripts": {
     "version": "npm run changelog && git add CHANGELOG.md && npm run version:gemspec",
