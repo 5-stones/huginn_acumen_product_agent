@@ -29,7 +29,9 @@ module ProdMktQueryConcern
           'Inv_Status.Available' => 'quantity',
         })
 
-        results << mapped
+        if (mapped['warehouse'] === 'Main Warehouse')
+          results << mapped
+        end
       rescue => error
         issue_error(AcumenAgentError.new(
           'process_inv_status_response',
