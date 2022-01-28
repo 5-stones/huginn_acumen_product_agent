@@ -1,3 +1,12 @@
+## [2.3.1](https://github.com/5-stones/huginn_acumen_product_agent/compare/v2.3.0...v2.3.1) (2022-01-28)
+
+
+### Bug Fixes
+
+* **inv_status_query_concern:** Fix inv_status lookup ([dc91a74](https://github.com/5-stones/huginn_acumen_product_agent/commit/dc91a7408c884e44cbc6bacda808e0c73406adf2))
+
+
+
 # [2.3.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v2.2.0...v2.3.0) (2021-08-17)
 
 
