@@ -107,6 +107,7 @@ class AcumenClient
                   <column_name>Inv_Product.No_Backorder_Fill</column_name>
                   <column_name>Inv_Product.Non_Inventory</column_name>
                   <column_name>Inv_Product.Assembly</column_name>
+                  <column_name>Inv_Product.Consignment</column_name>
               </requested_output>
           </acusoapRequest>
       XML
