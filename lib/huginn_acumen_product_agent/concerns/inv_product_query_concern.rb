@@ -46,9 +46,9 @@ module InvProductQueryConcern
         product['isTaxable'] = get_field_value(p, 'Inv_Product.Taxable') == '1'
         product['isOnWebsite'] = get_field_value(p, 'Inv_Product.Not_On_Website') == '0'
         product['noBackorderFill'] = get_field_value(p, 'Inv_Product.No_Backorder_Fill') == '1'
-        product['trackInventory'] = !(get_field_value(p, 'Inv_Product.Non_Inventory') == '1'
-          || get_field_value(p, 'Inv_Product.Assembly') == '1')
-          || get_field_value(p, 'Inv_Product.Consignment') == '1')
+        product['trackInventory'] = !(get_field_value(p, 'Inv_Product.Non_Inventory') == '1' ||
+          get_field_value(p, 'Inv_Product.Assembly') == '1' ||
+          get_field_value(p, 'Inv_Product.Consignment') == '1')
         product['acumenAttributes'] = {
           'info_alpha_1' => get_field_value(p, 'Inv_Product.Info_Alpha_1'),
           'info_boolean_1' => get_field_value(p, 'Inv_Product.Info_Boolean_1'), # is_available_on_formed
