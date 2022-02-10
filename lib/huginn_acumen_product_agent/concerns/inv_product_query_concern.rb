@@ -16,7 +16,7 @@ module InvProductQueryConcern
   # This function returns an array of Acumen products mapped to Schema.org/Product
   # objects. We've added additional fields of:
   #
-  #     *  `isAvailableForPurchase` -- used to control product deletion in external systems
+  #     *  `isOnWebsite` -- used to control product deletion in external systems
   #     *  `acumenAttributes` -- Additional acumen data that doesn't have a direct 1:1 field
   #        on the Product, but may be useful in other platforms
   def process_inv_product_response(raw_data, digital_format_list)
@@ -44,10 +44,11 @@ module InvProductQueryConcern
 
         product['@type'] = 'Product'
         product['isTaxable'] = get_field_value(p, 'Inv_Product.Taxable') == '1'
-        product['productAvailability'] = get_field_value(p, 'Inv_Product.Not_On_Website') == '0'
+        product['isOnWebsite'] = get_field_value(p, 'Inv_Product.Not_On_Website') == '0'
         product['noBackorderFill'] = get_field_value(p, 'Inv_Product.No_Backorder_Fill') == '1'
-        product['consignment'] = get_field_value(p, 'Inv_Product.Consignment') == '1'
-        product['trackInventory'] = !(get_field_value(p, 'Inv_Product.Non_Inventory') == '1' || get_field_value(p, 'Inv_Product.Assembly') == '1')
+        product['trackInventory'] = !(get_field_value(p, 'Inv_Product.Non_Inventory') == '1'
+          || get_field_value(p, 'Inv_Product.Assembly') == '1')
+          || get_field_value(p, 'Inv_Product.Consignment') == '1')
         product['acumenAttributes'] = {
           'info_alpha_1' => get_field_value(p, 'Inv_Product.Info_Alpha_1'),
           'info_boolean_1' => get_field_value(p, 'Inv_Product.Info_Boolean_1'), # is_available_on_formed
@@ -58,12 +59,37 @@ module InvProductQueryConcern
               'propertyID' => 'is_master',
               'value' => get_field_value(p, 'Inv_Product.OnWeb_LinkOnly') == '0',
           },
+          #  Product availability within Acumen is not always a "line in the sand"
+          #  situation in some cases, the requirements can become rather complex.
+          #  As a result, this agent does not strictly set availability, but rather
+          #  outputs the properties associated with setting it so that client-specific
+          #  logic can be implemented in subsequent agents which may require external
+          #  data (such as stock quantities for consignment products).
           {
-              # NOTE: This is different than isAvailableForPurchase. This
               '@type' => 'PropertyValue',
               'propertyID' => 'disable_web_purchase',
-              'value' => get_field_value(p, 'Inv_Product.Disable_Web_Purchase'),
-          }
+              'value' => get_field_value(p, 'Inv_Product.Disable_Web_Purchase') == '1',
+          },
+          {
+              '@type' => 'PropertyValue',
+              'propertyID' => 'no_backorder_fill',
+              'value' => get_field_value(p, 'Inv_Product.No_Backorder_Fill') == '1',
+          },
+          {
+              '@type' => 'PropertyValue',
+              'propertyID' => 'not_on_website',
+              'value' => get_field_value(p, 'Inv_Product.Not_On_Website') == '1',
+          },
+          {
+              '@type' => 'PropertyValue',
+              'propertyID' => 'non_inventory',
+              'value' => get_field_value(p, 'Inv_Product.Non_Inventory') == '1',
+          },
+          {
+              '@type' => 'PropertyValue',
+              'propertyID' => 'is_consignment',
+              'value' => get_field_value(p, 'Inv_Product.Consignment') == '1',
+          },
         ]
 
         product['offers'] = [{
@@ -82,19 +108,6 @@ module InvProductQueryConcern
 
         not_on_website = get_field_value(p, 'Inv_Product.Not_On_Website')
         disable_web_purchase = get_field_value(p, 'Inv_Product.Disable_Web_Purchase')
-
-        product_availability = 'available'
-
-
-        if (disable_web_purchase == '1')
-          product_availability = 'disabled'
-        end
-
-        if (not_on_website == '1')
-          product_availability = 'not available'
-        end
-
-        product['productAvailability'] = product_availability
 
         weight = get_field_value(p, 'Inv_Product.Weight')
         product['weight'] = get_quantitative_value(weight, 'oz.')
