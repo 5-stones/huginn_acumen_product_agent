@@ -108,7 +108,7 @@ class AcumenClient
                   <column_name>Inv_Product.Non_Inventory</column_name>
                   <column_name>Inv_Product.Assembly</column_name>
                   <column_name>Inv_Product.Consignment</column_name>
-                  <column_name>Inv_Product.Special_Link</column_name>
+                  <column_name>Inv_Product.SpecialLink</column_name>
               </requested_output>
           </acusoapRequest>
       XML
