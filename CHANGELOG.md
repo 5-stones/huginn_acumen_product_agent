@@ -1,3 +1,21 @@
+# [2.4.0](https://github.com/5-stones/huginn_acumen_product_agent/compare/v2.3.1...v2.4.0) (2025-03-12)
+
+
+### Bug Fixes
+
+* **acumen_client, inv_product_query_concern:** fix special link ([d328ae1](https://github.com/5-stones/huginn_acumen_product_agent/commit/d328ae1bfc0fb313079acaa525a116c7d8d36555))
+* **inv_product_query_concern:** Fix syntax error ([c533757](https://github.com/5-stones/huginn_acumen_product_agent/commit/c5337570a23e2e64b22d36e41b4d225f9659ce66))
+
+
+### Features
+
+* **acumen_client, inv_product_query_concern:** add Consignment as field ([9794bd3](https://github.com/5-stones/huginn_acumen_product_agent/commit/9794bd34b040df4b2dabf961797a0412be42e714))
+* **acumen_product_agent:** Modify product availability logic ([1b52369](https://github.com/5-stones/huginn_acumen_product_agent/commit/1b523696b337fe6607fb137e9cf85c7335deba38))
+* **client, prodct_mkt_query:** add the flipbook_url field to the product sync ([61200ce](https://github.com/5-stones/huginn_acumen_product_agent/commit/61200ce0e1902758b876385954684c6c130f5a1a))
+* **inv_product_query_concern:** add special link field ([343f92a](https://github.com/5-stones/huginn_acumen_product_agent/commit/343f92a53a1cf8aa93a4ce0c50d00380e0ba8a91))
+
+
+
 ## [2.3.1](https://github.com/5-stones/huginn_acumen_product_agent/compare/v2.3.0...v2.3.1) (2022-01-28)
 
 
