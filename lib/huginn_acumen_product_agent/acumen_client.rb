@@ -158,6 +158,7 @@ class AcumenClient
                   <column_name>ProdMkt.Info_Text_02</column_name>
                   <column_name>ProdMkt.Religious_Text_Identifier</column_name>
                   <column_name>ProdMkt.Info_Alpha_07</column_name>
+                  <column_name>ProdMkt.Info_Alpha_08</column_name>
               </requested_output>
           </acusoapRequest>
       XML

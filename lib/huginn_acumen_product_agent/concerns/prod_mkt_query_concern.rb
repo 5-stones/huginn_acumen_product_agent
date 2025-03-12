@@ -54,6 +54,7 @@ module ProdMktQueryConcern
           'ProdMkt.Info_Text_02' => 'info_text_02',
           'ProdMkt.Religious_Text_Identifier' => 'religious_text_identifier',
           'ProdMkt.Info_Alpha_07' => 'info_alpha_07',
+          'ProdMkt.Info_Alpha_08' => 'info_alpha_08',
         })
 
         results[mapped['product_id']] = mapped
@@ -123,6 +124,7 @@ module ProdMktQueryConcern
           product['acumenAttributes']['info_text_01'] = marketing['info_text_01'] # editorial_reviews
           product['acumenAttributes']['info_text_02'] = marketing['info_text_02'] # product_samples
           product['acumenAttributes']['info_alpha_07'] = marketing['info_alpha_07'] # video_urls
+          product['acumenAttributes']['info_alpha_08'] = marketing['info_alpha_08'] # flipbook_url
           product['acumenAttributes']['meta_description'] = marketing['meta_description']
           product['acumenAttributes']['religious_text_identifier'] = marketing['religious_text_identifier']
           product['acumenAttributes']['status'] = marketing['status']
