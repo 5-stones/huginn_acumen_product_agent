@@ -181,7 +181,12 @@ module Agents
         # Each object is a merged representation of all the individual Acumen tables
         # that make up a product record with fields mapped to the schema.org/Product
         # object definition.
-        def fetch_products(acumen_client, product_ids, digital_format_list)
+        def fetch_products(
+          acumen_client,
+          product_ids,
+          digital_format_list,
+          related_product_ids_map
+        )
             products = fetch_inv_product_data(acumen_client, product_ids, digital_format_list)
             products = fetch_product_marketing(acumen_client, products)
             products = fetch_inv_status(acumen_client, products)
@@ -189,7 +194,13 @@ module Agents
             products = fetch_product_categories(acumen_client, products)
 
             products.each do |product|
+                related_product_ids = related_product_ids_map[product['identifier'].to_i]
                 map_attributes(product)
+                add_additional_property(
+                  product,
+                  'related_products',
+                  related_product_ids || []
+                )
             end
 
             return products
@@ -207,7 +218,13 @@ module Agents
             data = fetch_alternate_format_ids(acumen_client, product_ids)
             full_id_set = data[:id_set]
             alternate_ids_map = data[:alternate_ids_map]
-            product_data = fetch_products(acumen_client, full_id_set, digital_format_list)
+            related_ids_map = data[:related_ids_map]
+            product_data = fetch_products(
+              acumen_client,
+              full_id_set,
+              digital_format_list,
+              related_ids_map
+            )
 
             bundles = product_ids.map do |id|
               bundle_ids = alternate_ids_map[id]
@@ -235,23 +252,29 @@ module Agents
         # NOTE:  Attributes mapped in this way will be _removed_ from the
         # `acumenAttributes` array.
         def map_attributes(product)
-
-
             attribute_to_property = interpolated['attribute_to_property']
             attributes = product['acumenAttributes']
 
             attributes.each do |key,val|
                 if attribute_to_property[key] && val
-                    product['additionalProperty'] = [] if product['additionalProperty'].nil?
-                    product['additionalProperty'].push({
-                        '@type' => 'PropertyValue',
-                        'propertyID' => attribute_to_property[key],
-                        'value' => val,
-                    })
+                    add_additional_property(
+                        product,
+                        attribute_to_property[key],
+                        val
+                    )
 
                     attributes.delete(key)
                 end
             end
+        end
+
+        def add_additional_property(product, property_id, value)
+            product['additionalProperty'] = [] if product['additionalProperty'].nil?
+            product['additionalProperty'].push({
+                '@type' => 'PropertyValue',
+                'propertyID' => property_id,
+                'value' => value,
+            })
         end
 
     end

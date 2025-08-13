@@ -23,14 +23,21 @@ module AlternateProductsQueryConcern
     begin
       link_data = acumen_client.get_linked_products(product_ids)
 
-      links = process_alternate_format_response(link_data)
+      links = process_linked_products_response(link_data)
+      alternate_formats = links[:alternate_formats]
+      related_products = links[:related_products]
 
-      mapped_ids = map_alternate_format_links(links, product_ids)
+      alternate_ids_map = map_alternate_format_links(alternate_formats, product_ids)
+      related_ids_map = map_alternate_format_links(related_products, product_ids)
 
       id_set = [] + product_ids
-      mapped_ids.each_value { |bundle| id_set += bundle }
+      alternate_ids_map.each_value { |bundle| id_set += bundle }
 
-      return {id_set: id_set, alternate_ids_map: mapped_ids }
+      return {
+        id_set: id_set,
+        alternate_ids_map: alternate_ids_map,
+        related_ids_map: related_ids_map,
+      }
     rescue => error
       issue_error(AcumenAgentError.new(
         'fetch_alternate_format_ids',
@@ -44,10 +51,13 @@ module AlternateProductsQueryConcern
   # This function parses the raw data returned from the Product_Link table
   # The resulting array contains the set alternate format IDs associated with a
   # single product
-  def process_alternate_format_response(raw_data)
-    results = []
-    raw_data.map do |link|
+  def process_linked_products_response(raw_data)
+    results = {
+      alternate_formats: [],
+      related_products: [],
+    }
 
+    raw_data.each do |link|
       begin
         mapped = response_mapper(link, {
           'Product_Link.Link_From_ID' => 'from_id',
@@ -56,13 +66,19 @@ module AlternateProductsQueryConcern
           'Product_Link.Inactive' => 'inactive',
         })
 
-        if mapped['inactive'] == '0' && mapped['alt_format'].to_s != '0' && !mapped.in?(results)
-          results.push(mapped)
+        if mapped['inactive'] == '0'
+          next
+        end
+
+        if mapped['alt_format'].to_s != '0' && !mapped.in?(results[:alternate_formats])
+          results[:alternate_formats].push(mapped)
+        elsif && !mapped.in?(results[:related_products])
+          results[:related_products].push(mapped)
         end
 
       rescue => error
         issue_error(AcumenAgentError.new(
-          'process_alternate_format_response',
+          'process_linked_products_response',
           'Failed while processing alternate format links',
           { product_id: get_field_value(link, 'Product_Link.Link_From_ID') },
           error
@@ -79,7 +95,6 @@ module AlternateProductsQueryConcern
     results = {}
 
     product_ids.each do |id|
-
       begin
         alternates = links.select { |l| l['from_id'] == id }
         results[id] = alternates.map { |l| l['to_id'] }
