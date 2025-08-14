@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  db:
+    image: ghcr.io/cloudnative-pg/postgresql:15.1
+    environment:
+      POSTGRES_DB: app
+      POSTGRES_USER: huginn
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  app:
+    image: ruby:2.5.8
+    environment:
+      DATABASE_ADAPTER: postgresql
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_NAME: app
+      DATABASE_USERNAME: huginn
+      DATABASE_PASSWORD: mysecretpassword
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+      - bundle:/usr/local/bundle
+    working_dir: /app
+    command:
+      - bash
+      - -c
+      - |
+        bundle
+        exec bundle exec rake
+
+volumes:
+  db_data:
+  bundle:

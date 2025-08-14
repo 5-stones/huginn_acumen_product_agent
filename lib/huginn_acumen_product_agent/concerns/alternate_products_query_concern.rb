@@ -72,7 +72,7 @@ module AlternateProductsQueryConcern
 
         if mapped['alt_format'].to_s != '0' && !mapped.in?(results[:alternate_formats])
           results[:alternate_formats].push(mapped)
-        elsif && !mapped.in?(results[:related_products])
+        elsif !mapped.in?(results[:related_products])
           results[:related_products].push(mapped)
         end
 
